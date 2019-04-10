@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,Linking,TouchableOpacity} from 'react-native';
+import {Platform, StyleSheet, Text, View,Linking,TouchableOpacity,ScrollView} from 'react-native';
 import Icons from 'react-native-vector-icons/AntDesign';
 import { Button,Header} from 'react-native-elements';
 
 
-export default class Profile extends Component{
+export default class Connect extends Component{
 	render(){
 		return(
-       <View style={{flex: 1,}}>
-        <View style={styles.headerTextView}>
+      <ScrollView>
+        <View style={{flex:1}}>
+          <View style={styles.headerTextView}>
           <TouchableOpacity
         onPress={()=>{this.props.navigation.navigate('Profile')}}>
           <Text style={styles.headerText1}>CenTex AIR</Text>
@@ -19,48 +20,44 @@ export default class Profile extends Component{
         />
           </TouchableOpacity>
         </View>
-     	 <View style={styles.container}>
-				<Text style={styles.tText}>CONNECT</Text>
-			 	<Text style={styles.sText}>          Y'ALL WANNA BE FRIENDS{"\n"}CONNECT WITHUS ON SOCIAL MEDIA!</Text>
-			 <View style={{height:550,alignItems:'center',justifyContent:'center'}}>
-	   	<Icons name='team' size={70} color='black'/>
-      
-
-	   	 <View style={{flex:1,marginTop:20}}>
-        <Button
+        <View style={{marginTop:10}}>
+          <Text style={styles.tText}>CONNECT</Text>
+        </View>
+        <View style={{justifyContent:'center',alignItems:'center'}}>
+          <Text style={styles.sText}>          Y'ALL WANNA BE FRIENDS{"\n"}CONNECT WITHUS ON SOCIAL MEDIA!</Text>
+        </View>
+        <View style={{justifyContent:'center',alignItems:'center',marginTop:20}}>
+              <Icons name='team' size={70} color='black'/>
+        </View>
+        <View style={{alignItems:'center',justifyContent:'center',marginTop:20}}>
+              <Button
         icon={{name: 'sc-facebook', type: 'evilicon',color:'white',size:30}}
         buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue'}}
                  onPress={ ()=> Linking.openURL('https://www.facebook.com/CLEAN-AIR-Force-of-Central-Texas-60700478852/') }
             title="FRIEND US!"
         />
-         <View style={{marginTop:10}}>
         <Button
              icon={{name: 'sc-twitter', type: 'evilicon',color:'white',size:30,}}
-             buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue'}}
+             buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue',marginTop:20}}
              onPress={ ()=> Linking.openURL('https://twitter.com/cleanairforcetx?lang=en') }
             title="FOLLOW US!"
         />
-         <View style={{marginTop:10}}>
-        <Button
+         <Button
             icon={{name: 'sc-youtube', type: 'evilicon',color:'white',size:30,}}
-            buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue'}}
+            buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue',marginTop:20}}
             onPress={ ()=> Linking.openURL('https://www.youtube.com/user/TheCLEANAIRForce') }
             title="WATCH US!"
         />
-         <View style={{marginTop:10}}>
         <Button
          icon={{name: 'sc-telegram', type: 'evilicon',color:'white',size:30,}}
-         buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue'}}
+         buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue',marginTop:20}}
             onPress={ ()=> Linking.openURL('http://cleanairforce.org/') }
             title="VISIT US!"
         />
         </View>
         </View>
-        </View>
-        </View>
-	   </View>
-			 </View>
-       </View>
+
+      </ScrollView>
        
 			);
 	}
@@ -88,10 +85,7 @@ const styles = StyleSheet.create({
   sText:{
   	flex:1,
   	color:'black',
-  	paddingLeft:100,
   	fontWeight:'bold',
-  	alignItems:'center',
-  	justifyContent:'center',
     marginTop:50,
 
   },
