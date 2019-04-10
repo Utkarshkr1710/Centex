@@ -85,7 +85,7 @@ class Forecast extends Component {
     }
 
   render() {
-
+    let  days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const { dataForecast } = this.props.state;
 
     console.log("Fore cast Data :: ",this.props.state)
@@ -110,7 +110,7 @@ class Forecast extends Component {
 
             <View style={{ marginTop: 5 }} key={uuidv4()} >
               
-                <Text style={{color:'royalblue',fontSize:16,fontWeight:'bold'}}>{this.getWeekDay(item.DateForecast) ? this.getWeekDay(item.DateForecast) : item.DateForecast}</Text>
+                <Text style={{color:'royalblue',fontSize:16,fontWeight:'bold'}}>{days[(new Date(`${item.DateForecast}`)).getDay()]}</Text>
               
                 <Speedometer
                   value={item.AQI}

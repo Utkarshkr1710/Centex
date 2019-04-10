@@ -143,7 +143,7 @@ class App extends Component {
 
     const { dataReducer } = this.props.state;
 
-    // dataReducer.data ? console.log('aa agay ',dataReducer.data[0]) : console.log('data nhi')
+    dataReducer.data ? console.log('aa agay ',dataReducer.data) : console.log('data nhi')
 
     // dataReducer.data ? console.log(dataReducer.data[0].AQI) : console.log('wait')
         
