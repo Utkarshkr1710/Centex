@@ -170,7 +170,6 @@ class App extends Component {
 
     }
 
-    
     return (
       <ScrollView>
         <View style={styles.container}>
