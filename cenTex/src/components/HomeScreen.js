@@ -156,6 +156,13 @@ const styles = StyleSheet.create({
     color: "black",
     //fontWeight:'bold',
     textAlign: "center"
+  },
+  TextInput:{
+    margin: 10,
+    height: 40,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius:8
   }
 });
 
