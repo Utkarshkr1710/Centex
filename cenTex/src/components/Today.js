@@ -23,6 +23,9 @@ import Tabs from "./tabs";
 // import { IconButton, Colors, withTheme } from "react-native-paper";
 import Modal from "react-native-modal";
 import { colors } from '../Resources/colorCode';
+// import console = require("console");
+
+// import console = require("console");
 
 let sampleData = [
   {
@@ -83,7 +86,8 @@ class App extends Component {
       pressure: 0,
       weather: [],
       error: null,
-      visible: false
+      visible: false,
+      weather: {}
     };
 
     if (Platform.OS === "android") {
@@ -118,7 +122,14 @@ class App extends Component {
     this.setState({ expanded: !this.state.expanded });
   };
 
+     componentWillMount(){
+    
+     }
+
+
   render() {
+    
+    
     const {
       isLoading,
       weatherCondition,
@@ -136,19 +147,22 @@ class App extends Component {
       PM,
       PM10,
       CO
-    } = this.state;
+    } =  this.state;
+    
+    
+    const { weatherDataCurrent } = this.props.state;
     const { navigation } = this.props;
     const itemId = navigation.getParam('itemId', 'NO-ID');
     const otherParam = navigation.getParam('otherParam', 'some default value');
 
     const { dataReducer } = this.props.state;
 
-    dataReducer.data ? console.log('aa agay ',dataReducer.data) : console.log('data nhi')
+    //if(this.props.state)
+    // console.log("dd : ",this.props.state)
 
-    // dataReducer.data ? console.log(dataReducer.data[0].AQI) : console.log('wait')
-        
+    weatherDataCurrent.data ? console.log('ho gaya',weatherDataCurrent) : console.log('abhi nhi aaya');
 
-    let categoryColor = null;
+      let categoryColor = null;
     if(dataReducer.data){
       const catNum = dataReducer.data[0].Category.Number;
 
@@ -451,14 +465,23 @@ class App extends Component {
                 </View>
               ) : (
                 <Weather
-                  weather={weatherCondition}
-                  temperature={temperature}
-                  humidity={humidity}
-                  Max_temp={Max_temp}
-                  Min_temp={Min_temp}
-                  visibility={visibility}
-                  windSpeed={windSpeed}
-                  pressure={pressure}
+                  weather={weatherDataCurrent.data ? weatherDataCurrent.data.weather[0].main : ''}
+
+                  temperature={weatherDataCurrent.data ? weatherDataCurrent.data.main.temp : 0}
+
+                  humidity={weatherDataCurrent.data ? weatherDataCurrent.data.main.humidity : 0}
+
+                  Max_temp={weatherDataCurrent.data ? weatherDataCurrent.data.main.temp_max : 0}
+
+                  Min_temp={weatherDataCurrent.data ? weatherDataCurrent.data.main.temp_min : 0}
+
+                  visibility={weatherDataCurrent.data ? weatherDataCurrent.data.visibility : 0}
+
+                  windSpeed={weatherDataCurrent.data ? weatherDataCurrent.data.wind.speed : 0}
+
+                  pressure={weatherDataCurrent.data ? weatherDataCurrent.data.main.pressure : 0}
+
+                  iconCode = {weatherDataCurrent.data ? weatherDataCurrent.data.weather[0].icon : '50d'}
                 />
               )}
             </View> 

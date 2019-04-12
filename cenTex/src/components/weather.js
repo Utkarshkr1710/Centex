@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PropTypes from 'prop-types';
 import {weatherConditions} from './WeatherConditions';
 
 //const weatherConditions
-const Weather =({weather,temperature,humidity,Max_temp,Min_temp,visibility,windSpeed,pressure}) =>{
+const Weather =({weather,temperature,humidity,Max_temp,Min_temp,visibility,windSpeed,pressure,iconCode}) =>{
 
+  const imageSrc = `http://openweathermap.org/img/w/${iconCode}.png`;
   //console.log(weather);
 
   return (
@@ -15,10 +16,30 @@ const Weather =({weather,temperature,humidity,Max_temp,Min_temp,visibility,windS
               ]}>
       <View style={styles.headerContainer}>
          <Text style={styles.tempText}>{temperature}˚</Text>
-         <MaterialCommunityIcons 
+         {/* <MaterialCommunityIcons 
                     size={60} 
                     name={weatherConditions["Haze"].icon}
-                    color={'black'} />
+                    color={'black'} /> */}
+
+{/* 
+              <Image 
+                source={require(`http://openweathermap.org/img/w/10d.png
+
+                `)} 
+              
+              /> */}
+ 
+ <Image
+      source={{uri: imageSrc}}
+      style={{
+        height: 70,
+        width: 70,
+        borderRadius: 20,
+        //marginTop: 10,
+      }}
+    />
+
+
           <Text style={styles.SUNNY}>{weatherConditions["Haze"].title}{'\n'}      {Max_temp}˚ | {Min_temp}˚</Text> 
       </View>
       <View style={styles.RectangleShapeView}> 
@@ -27,7 +48,7 @@ const Weather =({weather,temperature,humidity,Max_temp,Min_temp,visibility,windS
            <Text style={styles.humidity}>HUMIDITY{'\n'}    {humidity}%                             
            </Text>
       <MaterialCommunityIcons size={40} name="muffin" color={'black'} style={{alignItems:'center',justifyContent:'center'}}/>
-            <Text style={styles.air}>AIR PRESSURE{'\n'}        {pressure}%                               
+            <Text style={styles.air}>AIR PRESSURE{'\n'}        {pressure}mBar                               
            </Text>
       </View>
      
