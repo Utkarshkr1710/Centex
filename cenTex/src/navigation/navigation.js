@@ -27,7 +27,7 @@ import Today from '../components/Today';
 
 import Location from '../components/Location';
 
-const { width } = Dimensions.get("window");
+const { width } = (Dimensions.get("window")/1.5);
 
 
 import {
@@ -56,30 +56,31 @@ const CustomDrawerComponent = props => (
   <SafeAreaView style={{ flex: 1 }}>
   <View
     style={{
-      height: 150,
+      height: 100,
       backgroundColor: "royalblue",
-      flexDirection: "row"
+      flexDirection: "row",
+      paddingTop:30
     }}
   >
     <Image
       source={require("../Resources/images/Air1.png")}
       style={{
-        height: 120,
-        width: 120,
-        borderRadius: 60,
-        marginTop: 10,
+        height: 50,
+        width: 50,
+        borderRadius: 30,
+        //marginTop: 10,
         marginLeft: 20
       }}
     />
     <Text
       style={{
         color: "white",
-        fontSize: 23,
+        fontSize: 18,
         fontWeight: "bold",
-        paddingLeft: 50,
+        paddingLeft: 20,
         alignItems: "center",
         justifyContent: "center",
-        padding: 50
+        paddingTop: 8
       }}
     >
       {" "}

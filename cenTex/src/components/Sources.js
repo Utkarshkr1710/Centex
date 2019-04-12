@@ -5,18 +5,25 @@ import { Button } from 'react-native-elements'
 export default class Sources extends Component{
 	render(){
 	return(
-         <View style={{flex: 1,}}>
-        <View style={styles.headerTextView}>
-         <TouchableOpacity
-        onPress={()=>{this.props.navigation.navigate('Profile')}}>
-          <Text style={styles.headerText1}>CenTex AIR</Text>
-           <Button
-            icon={{name: 'arrowleft', type: 'antdesign',color:'white',size:30}}
-            buttonStyle={{height: 40, width:80,marginTop:-30,backgroundColor:'royalblue'}}
+      <View style={{flex: 1,}}>
+        <View style={{backgroundColor:'royalblue',flexDirection:'row',height:50}}>
+        <View style={{marginTop:5}}>
+        <Button
+            icon={{name: 'arrowleft', type: 'antdesign',color:'white',size:24}}
+            buttonStyle={{width:'60%',backgroundColor:'transparent'}}
             onPress={() =>this.props.navigation.openDrawer()}
         />
-          </TouchableOpacity>
         </View>
+        <View style={{marginTop:7}}>
+        <TouchableOpacity 
+            onPress={()=>{this.props.navigation.navigate('Profile')}}>
+            <View style={{justifyContent:'center',alignItems:'center'}}>
+                <Text style={{fontSize:24,fontWeight:'bold',color:'white'}}>CenTex AIR</Text>
+            </View>
+            </TouchableOpacity>
+        </View>
+        </View>
+
 			 <View style={styles.container}>
 				<Text style={styles.tText}>DATA SOURCES</Text>
 			 <View style={styles.cContainer}>

@@ -18,7 +18,7 @@ import Overlay from "react-native-modal-overlay";
 import PureChart from "react-native-pure-chart";
 import Speedometer from "react-native-speedometer-chart";
 import Weather from "./weather";
-// import { API_KEY } from "./WeatherAPIKEY";
+ import { API_KEY } from "./WeatherAPIKEY";
 import Tabs from "./tabs";
 // import { IconButton, Colors, withTheme } from "react-native-paper";
 import Modal from "react-native-modal";
@@ -170,6 +170,7 @@ class App extends Component {
 
     }
 
+    
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -443,7 +444,7 @@ class App extends Component {
                 <Text style={styles.weatherText}>WEATHER</Text>
               </TouchableOpacity>
             </View>
-            {/* <View style={styles.weather}>
+             <View style={styles.weather}>
               {isLoading ? (
                 <View style={styles.loadingContainer}>
                   <Text style={styles.loadingText}>Fetching The Weather</Text>
@@ -460,7 +461,7 @@ class App extends Component {
                   pressure={pressure}
                 />
               )}
-            </View> */}
+            </View> 
             <Overlay
               visible={this.state.modalVisible}
               onClose={this.onClose}
@@ -1428,13 +1429,14 @@ const styles = StyleSheet.create({
     height: 50,
     marginTop: 20,
     backgroundColor: "royalblue",
-    justifyContent: "center"
   },
   weatherText: {
     color: "white",
     fontSize: 20,
-    margin: 20,
-    marginTop: 28
+    justifyContent:"center",
+    paddingLeft:20,
+    marginTop:10
+
   },
   weather: {
     flex: 1,

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PropTypes from 'prop-types';
-// import {weatherConditions} from './WeatherConditions';
+import {weatherConditions} from './WeatherConditions';
 
 //const weatherConditions
 const Weather =({weather,temperature,humidity,Max_temp,Min_temp,visibility,windSpeed,pressure}) =>{

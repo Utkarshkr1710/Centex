@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback,Image,Dimensions,ScrollView,BackHandler } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback,Image,Dimensions,ScrollView,BackHandler,TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Button } from 'react-native-elements';
 import Collapsible from 'react-native-collapsible';
@@ -91,17 +91,25 @@ const sampleAccordianData = [
   render(){
     return(
        <View style={{flex: 1,}}>
-        <View style={styles.headerTextView}>
-          <View style={{justifyContent:'center'}}>
-          <Text style={styles.headerText1}>CenTex AIR</Text>
-          </View>
-          <View style={{justifyContent:'center'}}>
-         <Button
-            icon={{name: 'arrowleft', type: 'antdesign',color:'white',size:30}}
-            buttonStyle={{height: 40, width:80,backgroundColor:'transparent',marginTop:-35}}
-            onPress={() =>this.props.navigation.navigate('Profile')}
+          <View style={{backgroundColor:'royalblue',flexDirection:'row',height:50}}>
+        <View style={{marginTop:5}}>
+        <Button
+            icon={{name: 'arrowleft', type: 'antdesign',color:'white',size:24}}
+            buttonStyle={{width:'60%',backgroundColor:'transparent'}}
+            onPress={() =>this.props.navigation.navigate("Profile")}
         />
         </View>
+        <View style={{marginTop:7}}>
+        <TouchableOpacity 
+            onPress={()=>{this.props.navigation.navigate('Profile')}}>
+            <View style={{justifyContent:'center',alignItems:'center'}}>
+                <Text style={{fontSize:24,fontWeight:'bold',color:'white'}}>CenTex AIR</Text>
+            </View>
+            </TouchableOpacity>
+        </View>
+        
+      
+
         </View>
        <View style={styles.ccontainer}>
         <Text style={styles.tText}>FAQ</Text>
