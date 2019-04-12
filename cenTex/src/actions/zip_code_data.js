@@ -45,11 +45,12 @@ export function zipCodeDataForecast(text){
 export function zipCodeWeatherData(text){
 
     const pinCode = text;
-    const API_URL3 = `api.openweathermap.org/data/2.5/weather?zip=${pinCode}`
+    const WEATHER_KEY = `068967ef2d56a59ad1b9b5fe4c6a63ee`;
+    const API_URL3 = `api.openweathermap.org/data/2.5/weather?zip=${pinCode}&APPID=${WEATHER_KEY}`
 
 
     const request = axios.get(`${API_URL3}`)
-                    .then(response => console.log("weather zip code data is :: ",response.data))
+                    .then(response => response.data)
                     .catch(err => console.error(err));
                     
 

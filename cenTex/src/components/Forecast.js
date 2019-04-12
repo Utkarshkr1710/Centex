@@ -56,7 +56,7 @@ class Forecast extends Component {
 
 
   componentDidMount() {
-    // this.getForecastData();
+
   }
 
   getWeekDay(date){
