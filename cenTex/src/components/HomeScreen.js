@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import {zipCodeData, zipCodeDataForecast} from '../actions/zip_code_data';
-import {locationData, locationDataForecast} from '../actions/location_data';
+import {locationData, locationDataForecast, locationWeatherCurrent} from '../actions/location_data';
 
 import {
   Platform,
@@ -35,6 +35,7 @@ class HomeScreen extends Component {
     this.props.navigation.navigate("Home");
     this.props.dispatch(locationData());
     this.props.dispatch(locationDataForecast());
+    this.props.dispatch(locationWeatherCurrent());
   }
   showLocationButton = () => {
     const { showLocationButton, pinCode } = this.state;

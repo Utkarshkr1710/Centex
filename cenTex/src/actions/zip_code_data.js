@@ -3,7 +3,8 @@ import {
     GET_DATA,
     ZIP_CODE_INPUT,
     ZIPCODE_DATA,
-    ZIPCODE_DATA_FORECAST
+    ZIPCODE_DATA_FORECAST,
+    ZIPCODE_WEATHER_DATA
 } from './types';
 
 export function zipCodeData(text){
@@ -41,3 +42,19 @@ export function zipCodeDataForecast(text){
     }
 }
 
+export function zipCodeWeatherData(text){
+
+    const pinCode = text;
+    const API_URL = `api.openweathermap.org/data/2.5/weather?zip=${pinCode}`
+
+
+    const request = axios.get(`${API_URL}`)
+                    .then(response => console.log("weather zip code data is :: ",response.data))
+                    .catch(err => console.error(err));
+                    
+
+    return {
+        type: ZIPCODE_WEATHER_DATA,
+        payload: request
+    }
+}

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {
    LOCATION_DATA,
-   LOCATION_DATA_FORECAST
+   LOCATION_DATA_FORECAST,
+   LOCATION_WEATHER_CURRENT
 } from './types';
 export function locationData(latitude, longitude){
     const lat = `38.919`;
@@ -35,6 +36,26 @@ export function locationDataForecast(){
 
     return {
         type: LOCATION_DATA_FORECAST,
+        payload: request
+    }
+}
+
+
+export function locationWeatherCurrent(latitude, longitude){
+    const long = `77.384269`;
+    const lat = `28.611591`;
+    const WEATHER_API = '068967ef2d56a59ad1b9b5fe4c6a63ee';
+
+    const API_URL3 = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${WEATHER_API}&units=metric`
+
+
+    const request = axios.get(`${API_URL3}`)
+                    .then(response => response.data)
+                    .catch(err => console.error(err));
+                    
+
+    return {
+        type: LOCATION_WEATHER_CURRENT,
         payload: request
     }
 }
