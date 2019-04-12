@@ -16,20 +16,8 @@ const Weather =({weather,temperature,humidity,Max_temp,Min_temp,visibility,windS
               ]}>
       <View style={styles.headerContainer}>
          <Text style={styles.tempText}>{temperature}˚</Text>
-         {/* <MaterialCommunityIcons 
-                    size={60} 
-                    name={weatherConditions["Haze"].icon}
-                    color={'black'} /> */}
-
-{/* 
-              <Image 
-                source={require(`http://openweathermap.org/img/w/10d.png
-
-                `)} 
-              
-              /> */}
- 
- <Image
+         
+    <Image
       source={{uri: imageSrc}}
       style={{
         height: 70,
@@ -40,8 +28,8 @@ const Weather =({weather,temperature,humidity,Max_temp,Min_temp,visibility,windS
     />
 
 
-          <Text style={styles.SUNNY}>{weatherConditions["Haze"].title}{'\n'}      {Max_temp}˚ | {Min_temp}˚</Text> 
-      </View>
+      <Text style={{textAlign: 'center', justifyContent: 'center', fontSize:17,color:'black', fontWeight:'bold', flex: 1}}>{weather}{'\n'}      {Max_temp}˚ | {Min_temp}˚</Text> 
+    </View>
       <View style={styles.RectangleShapeView}> 
       <View style={{marginTop:10,flexDirection:'row',justifyContent:'space-around'}}>
       <MaterialCommunityIcons size={40} name="weather-rainy" color={'black'}  style={{alignItems:'center',justifyContent:'center'}} />
