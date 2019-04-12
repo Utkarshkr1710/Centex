@@ -27,7 +27,7 @@ import Today from '../components/Today';
 
 import Location from '../components/Location';
 
-const { width } = (Dimensions.get("window")/1.5);
+//const { width } = (Dimensions.get("window")/1.5);
 
 
 import {
@@ -56,7 +56,7 @@ const CustomDrawerComponent = props => (
   <SafeAreaView style={{ flex: 1 }}>
   <View
     style={{
-      height: 100,
+      height: 130,
       backgroundColor: "royalblue",
       flexDirection: "row",
       paddingTop:30
@@ -65,8 +65,8 @@ const CustomDrawerComponent = props => (
     <Image
       source={require("../Resources/images/Air1.png")}
       style={{
-        height: 50,
-        width: 50,
+        height: 70,
+        width: 70,
         borderRadius: 30,
         //marginTop: 10,
         marginLeft: 20
@@ -77,10 +77,10 @@ const CustomDrawerComponent = props => (
         color: "white",
         fontSize: 18,
         fontWeight: "bold",
-        paddingLeft: 20,
+        paddingLeft: 30,
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 8
+        paddingTop: 18
       }}
     >
       {" "}
@@ -180,7 +180,7 @@ const AppDrawerNavigator = createDrawerNavigator(
   },
   {
     contentComponent: CustomDrawerComponent,
-    drawerWidth: width
+    drawerWidth:300
   }
 );
 
