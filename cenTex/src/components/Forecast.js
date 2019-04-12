@@ -50,6 +50,7 @@ class Forecast extends Component {
       isLoading: false,
       value: 0,
       forCastData:[],
+      days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     };
   }
 
@@ -85,10 +86,10 @@ class Forecast extends Component {
     }
 
   render() {
-    let  days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
     const { dataForecast } = this.props.state;
 
-    console.log("Fore cast Data :: ",this.props.state)
+    //console.log("Fore cast Data :: ",this.props.state)
     const uuidv4 = require('uuid/v4');
          
     return (
@@ -110,7 +111,7 @@ class Forecast extends Component {
 
             <View style={{ marginTop: 5 }} key={uuidv4()} >
               
-                <Text style={{color:'royalblue',fontSize:16,fontWeight:'bold'}}>{days[(new Date(`${item.DateForecast}`)).getDay()]}</Text>
+                <Text style={{color:'royalblue',fontSize:16,fontWeight:'bold'}}>{ this.getWeekDay(item.DateForecast) ? this.state.days[(new Date(`${item.DateForecast}`)).getDay()] : item.DateForecast}</Text>
               
                 <Speedometer
                   value={item.AQI}

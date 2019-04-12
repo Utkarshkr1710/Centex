@@ -12,6 +12,7 @@ import {
   ScrollView,
   TouchableHighlight
 } from "react-native";
+
 import Icons from "react-native-vector-icons/AntDesign";
 import { Button, Header } from "react-native-elements";
 import Overlay from "react-native-modal-overlay";
@@ -23,9 +24,6 @@ import Tabs from "./tabs";
 // import { IconButton, Colors, withTheme } from "react-native-paper";
 import Modal from "react-native-modal";
 import { colors } from '../Resources/colorCode';
-// import console = require("console");
-
-// import console = require("console");
 
 let sampleData = [
   {
@@ -129,7 +127,10 @@ class App extends Component {
 
   render() {
     
+    const fill = 'rgb(134, 65, 244)'
+    const databAR   = [ 50, 10, 40, 95, -4, -24, null, 85, undefined, 0, 35, 53, -53, 24, 50, -20, -80 ]
     
+
     const {
       isLoading,
       weatherCondition,
@@ -157,14 +158,11 @@ class App extends Component {
 
     const { dataReducer } = this.props.state;
 
-    //if(this.props.state)
-    // console.log("dd : ",this.props.state)
-
     weatherDataCurrent.data ? console.log('ho gaya',weatherDataCurrent) : console.log('abhi nhi aaya');
 
-      let categoryColor = null;
+    let categoryColor = null;
     if(dataReducer.data){
-      const catNum = dataReducer.data[0].Category.Number;
+    const catNum = dataReducer.data[0].Category.Number;
 
       if(catNum === 1)
         categoryColor = '#28b463';
@@ -175,9 +173,9 @@ class App extends Component {
                 else if(catNum === 4)
                         categoryColor = 'red';
                         else if(catNum === 5)
-                                categoryColor = '800080';
+                                categoryColor = '#800080';
                               else if(catNum === 6)
-                                      categoryColor = '800000';
+                                      categoryColor = '#800000';
                                     else if(catNum === 7)
                                             categoryColor = '#800000';
                       
@@ -451,7 +449,13 @@ class App extends Component {
                 justifyContent: "center"
               }}
             >
+              
+              
+              
+              
+              
               <PureChart data={sampleData} type="pie" />
+
             </View>
             <View style={styles.weatherView}>
               <TouchableOpacity activeOpacity={0.8}>

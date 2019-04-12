@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
-import {zipCodeData, zipCodeDataForecast} from '../actions/zip_code_data';
-import {locationData, locationDataForecast} from '../actions/location_data';
+import {zipCodeData, zipCodeDataForecast, zipCodeWeatherData} from '../actions/zip_code_data';
+import {locationData, locationDataForecast, locationWeatherCurrent} from '../actions/location_data';
 
 import {
   Platform,
@@ -12,7 +12,6 @@ import {
   StatusBar,
   TextInput
 } from "react-native";
-// import SplashSreen from "./SplashSreen";
 import { Button } from "react-native-elements";
 
 class Location extends Component {
@@ -35,6 +34,7 @@ class Location extends Component {
     this.props.navigation.navigate("Home");
     this.props.dispatch(locationData());
     this.props.dispatch(locationDataForecast());
+    this.props.dispatch(locationWeatherCurrent());
   }
   showLocationButton = () => {
     const { showLocationButton, pinCode } = this.state;
@@ -47,6 +47,7 @@ class Location extends Component {
       // console.log('Pin Code is ', pinCode)
       this.props.dispatch(zipCodeData(pinCode))
       this.props.dispatch(zipCodeDataForecast(pinCode))
+      this.props.dispatch(zipCodeWeatherData(pinCode))
     }
   };
   async componentDidMount() {
@@ -61,10 +62,6 @@ class Location extends Component {
 
   render() {
     const { showLocationButton } = this.state;
-
-    // if (this.state.isLoading) {
-    //   return <SplashSreen />;
-    // }
 
     const { navigate } = this.props.navigation;
     return (
@@ -156,6 +153,13 @@ const styles = StyleSheet.create({
     color: "black",
     //fontWeight:'bold',
     textAlign: "center"
+  },
+  TextInput:{
+    margin: 10,
+    height: 40,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius:8
   }
 });
 

@@ -70,18 +70,21 @@ export default class Share extends Component{
              onPress={ ()=> Linking.openURL('https://twitter.com/cleanairforcetx?lang=en') }
             title="TWEET US!"
         />
+
          <Button
         icon={{name: 'mail', type: 'antdesign',color:'white',size:30,}}
         buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue',marginTop:20}}
            onPress={() => Linking.openURL('mailto:support@example.com?subject=CenTexAir&body=HOWDY! I think you would like the CenTexAIR app! It gives you all of the important infomation you need to be air aware,including the air quality, the pollen count, and the weather report for your Central Texas neighborhood! It is also free, so check it out!') }
             title="EMAIL A FRIEND!"
         />
+
        <Button
         icon={{name: 'mobile1', type: 'antdesign',color:'white',size:30,}}
         buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue',marginTop:20}}
             onPress={() => Linking.openURL('sms:8107196365?body=Hey,This is a text message only....')}
             title="TEXT A FRIEND!"
         />
+        
         </View>
         </View>
 

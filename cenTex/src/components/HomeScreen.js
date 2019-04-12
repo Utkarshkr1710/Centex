@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
-import {zipCodeData, zipCodeDataForecast} from '../actions/zip_code_data';
+import {zipCodeData, zipCodeDataForecast, zipCodeWeatherData} from '../actions/zip_code_data';
 import {locationData, locationDataForecast, locationWeatherCurrent} from '../actions/location_data';
 
 import {
