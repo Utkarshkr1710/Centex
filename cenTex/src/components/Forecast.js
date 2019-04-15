@@ -11,7 +11,8 @@ import {
   Text,
   Image,
   Alert,
-  YellowBox
+  YellowBox,
+  ScrollView
 } from "react-native";
 import Speedometer from "react-native-speedometer-chart";
 import PureChart from "react-native-pure-chart";
@@ -39,6 +40,21 @@ let sampleData = [
     value: 20,
     label: "MOLD",
     color: "gold"
+  }
+];
+
+var data = [
+  {
+    seriesName: "series1",
+    data: [
+      { x: "10pm", y: 30 },
+      { x: "12pm", y: 60 },
+      { x: "2pm", y: 90 },
+      { x: "4pm", y: 120 },
+      { x: "6pm", y: 150 },
+      { x: "8pm", y: 170 }
+    ],
+    color: "#297AB1"
   }
 ];
 
@@ -93,8 +109,8 @@ class Forecast extends Component {
     const uuidv4 = require('uuid/v4');
          
     return (
-
-      <View style={styles.MainContainer}>
+      <ScrollView style={{ flex: 1, position: 'relative' }}>
+            <View style={styles.MainContainer}>
         <FlatList
           key = {uuidv4()}
           data= { dataForecast ? dataForecast.data : null }
@@ -132,7 +148,8 @@ class Forecast extends Component {
                   alignItems: "center"
                 }}
             >
-                <PureChart data={sampleData} type="pie" size={90} />
+
+              <PureChart data={sampleData} type="pie" size={90} />
               
               </View>
 
@@ -151,7 +168,9 @@ class Forecast extends Component {
           )}
            keyExtractor={(item, index) => item.toString()}
         />
-      </View>
+      </View>        
+      </ScrollView>
+
     );
   }
 }

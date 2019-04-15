@@ -1,22 +1,73 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,Image,TouchableOpacity,ScrollView} from 'react-native';
+import {Platform, StyleSheet, Text, View,Image,TouchableOpacity,ScrollView, PermissionsAndroid} from 'react-native';
 import Icons from 'react-native-vector-icons/AntDesign';
 import ToggleSwitch from 'toggle-switch-react-native';
 import { Button,Divider } from 'react-native-elements';
 
 
-
 export default class Profile extends Component{
 
-	 state = {
-    isOnDefaultToggleSwitch: true,
-    isOnLargeToggleSwitch: false,
-    isOnBlueToggleSwitch: false,
+  
+  state = {
+    isOnDefaultToggleSwitch: false,
+    isOnLargeToggleSwitch: true,
+    isOnBlueToggleSwitch: true,
   };
+
+  async componentDidMount(){
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        this.setState({
+        isOnDefaultToggleSwitch: true
+     })
+      
+    } 
+  }
+
+  async requestPermission(){
+
+        try {
+          const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            {
+              title: 'CentTex Location Permission',
+              message:
+                'cenTex App want your area location.',
+              buttonNeutral: 'Ask Me Later',
+              buttonNegative: 'Cancel',
+              buttonPositive: 'OK',
+            },
+          );
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      
+           console.log('You can use the location');
+           this.setState({
+             isOnDefaultToggleSwitch: true
+           })
+            
+          } else {
+            console.log('Location permission denied');
+            this.setState({
+              isOnDefaultToggleSwitch: false
+            })
+            
+          }
+          
+        } catch (err) {
+          console.warn(err);
+        }  
+      
+  }
+
+
 
   onToggle(isOn){
     alert('Changed to ' + isOn)
   }
+
+  
   render(){
     return(
       <ScrollView>
@@ -50,10 +101,9 @@ export default class Profile extends Component{
           label="LOCATION SERVICES"
           onColor="limegreen"
           isOn={this.state.isOnDefaultToggleSwitch}
-          onToggle={isOnDefaultToggleSwitch => {
-            this.setState({ isOnDefaultToggleSwitch });
-            this.onToggle(isOnDefaultToggleSwitch);
+          onToggle={isOnDefaultToggleSwitch => { this.requestPermission()
           }}
+          
         />
         </View>
          <View style={styles.togglecontainer}>

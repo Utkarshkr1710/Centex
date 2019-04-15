@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import {connect} from 'react-redux';
 
+import BarChartExample from './charts';
 import {
   Text,
   View,
@@ -24,6 +25,7 @@ import Tabs from "./tabs";
 // import { IconButton, Colors, withTheme } from "react-native-paper";
 import Modal from "react-native-modal";
 import { colors } from '../Resources/colorCode';
+
 
 let sampleData = [
   {
@@ -53,13 +55,26 @@ var data = [
     data: [
       { x: "10pm", y: 30 },
       { x: "12pm", y: 60 },
-      { x: "2pm", y: 90 },
+      { x: "2pm", y: 900 },
       { x: "4pm", y: 120 },
       { x: "6pm", y: 150 },
       { x: "8pm", y: 170 }
     ],
     color: "#297AB1"
   }
+  // ,
+  // {
+  //   seriesName: "series2",
+  //   data: [
+  //     { x: "10pm", y: 300 },
+  //     { x: "12pm", y: 560 },
+  //     { x: "2pm", y: 940 },
+  //     { x: "4pm", y: 120 },
+  //     { x: "6pm", y: 120 },
+  //     { x: "8pm", y: 1110 }
+  //   ],
+  //   color: "#29CAB1"
+  // }
 ];
 
 class App extends Component {
@@ -180,6 +195,7 @@ class App extends Component {
 
     }
 
+    // console.log('weather api data :: ', this.props.state);
     
     return (
       <ScrollView>
@@ -442,17 +458,17 @@ class App extends Component {
             </View>
             <View
               style={{
-                marginTop: 20,
+                flex: 1,
+                // marginTop: 20,
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
+                height: 160,
+                margin: 20
+                
               }}
             >
-              
-              
-              
-              
-              
-              <PureChart data={sampleData} type="pie" />
+
+              <PureChart data={data} type="bar" />
 
             </View>
             <View style={styles.weatherView}>

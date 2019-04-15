@@ -45,10 +45,9 @@ class HomeScreen extends Component {
       alert("Please enter zip code");
     } else {
       this.props.navigation.navigate("Home");
-      // console.log('Pin Code is ', pinCode)
       this.props.dispatch(zipCodeData(pinCode))
       this.props.dispatch(zipCodeDataForecast(pinCode))
-      // this.props.dispatch(zipCodeWeatherData(pinCode))
+      this.props.dispatch(zipCodeWeatherData(pinCode))
     }
   };
   async componentDidMount() {
