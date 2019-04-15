@@ -158,8 +158,6 @@ class App extends Component {
 
     const { dataReducer } = this.props.state;
 
-    weatherDataCurrent.data ? console.log('ho gaya',weatherDataCurrent) : console.log('abhi nhi aaya');
-
     let categoryColor = null;
     if(dataReducer.data){
     const catNum = dataReducer.data[0].Category.Number;
