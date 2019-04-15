@@ -21,8 +21,25 @@ class HomeScreen extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = { isLoading: true, showLocationButton: false, pinCode: null };
+    this.state = { isLoading: true, showLocationButton: false, pinCode: null,
+    latitude: 0,
+    longitude: 0
+    };
   }
+
+
+  componentWillMount(){
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        })
+      }
+    )
+  }
+
+
 
   performTimeConsumingTask = async () => {
     return new Promise(resolve =>
@@ -33,10 +50,11 @@ class HomeScreen extends Component {
   };
   openLocation = () =>{
     this.props.navigation.navigate("Home");
-    this.props.dispatch(locationData());
-    this.props.dispatch(locationDataForecast());
-    this.props.dispatch(locationWeatherCurrent());
+    this.props.dispatch(locationData(this.state.latitude, this.state.longitude));
+    this.props.dispatch(locationDataForecast(this.state.latitude, this.state.longitude));
+    this.props.dispatch(locationWeatherCurrent(this.state.latitude, this.state.longitude));
   }
+
   showLocationButton = () => {
     const { showLocationButton, pinCode } = this.state;
     if (!showLocationButton && pinCode == null) {
@@ -66,7 +84,7 @@ class HomeScreen extends Component {
     if (this.state.isLoading) {
       return <SplashSreen />;
     }
-
+console.log(this.state)
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>

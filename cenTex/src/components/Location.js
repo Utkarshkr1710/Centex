@@ -12,6 +12,7 @@ import {
   StatusBar,
   TextInput
 } from "react-native";
+import SplashSreen from "./SplashSreen";
 import { Button } from "react-native-elements";
 
 class Location extends Component {
@@ -20,8 +21,25 @@ class Location extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = { isLoading: true, showLocationButton: false, pinCode: null };
+    this.state = { isLoading: true, showLocationButton: false, pinCode: null,
+    latitude: 0,
+    longitude: 0
+    };
   }
+
+
+  componentWillMount(){
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        })
+      }
+    )
+  }
+
+
 
   performTimeConsumingTask = async () => {
     return new Promise(resolve =>
@@ -32,10 +50,11 @@ class Location extends Component {
   };
   openLocation = () =>{
     this.props.navigation.navigate("Home");
-    this.props.dispatch(locationData());
-    this.props.dispatch(locationDataForecast());
-    this.props.dispatch(locationWeatherCurrent());
+    this.props.dispatch(locationData(this.state.latitude, this.state.longitude));
+    this.props.dispatch(locationDataForecast(this.state.latitude, this.state.longitude));
+    this.props.dispatch(locationWeatherCurrent(this.state.latitude, this.state.longitude));
   }
+
   showLocationButton = () => {
     const { showLocationButton, pinCode } = this.state;
     if (!showLocationButton && pinCode == null) {
@@ -44,7 +63,6 @@ class Location extends Component {
       alert("Please enter zip code");
     } else {
       this.props.navigation.navigate("Home");
-      // console.log('Pin Code is ', pinCode)
       this.props.dispatch(zipCodeData(pinCode))
       this.props.dispatch(zipCodeDataForecast(pinCode))
       this.props.dispatch(zipCodeWeatherData(pinCode))
@@ -63,6 +81,7 @@ class Location extends Component {
   render() {
     const { showLocationButton } = this.state;
 
+console.log(this.state)
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>

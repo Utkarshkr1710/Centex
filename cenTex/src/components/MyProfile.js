@@ -10,8 +10,8 @@ export default class Profile extends Component{
   
   state = {
     isOnDefaultToggleSwitch: false,
-    isOnLargeToggleSwitch: true,
-    isOnBlueToggleSwitch: true,
+    isOnNotifyToggleSwitch: true,
+    isOnBadgeToggleSwitch: true,
   };
 
   async componentDidMount(){
@@ -46,6 +46,7 @@ export default class Profile extends Component{
            this.setState({
              isOnDefaultToggleSwitch: true
            })
+           alert('location permission already enable.')
             
           } else {
             console.log('Location permission denied');
@@ -63,11 +64,31 @@ export default class Profile extends Component{
 
 
 
-  onToggle(isOn){
-    alert('Changed to ' + isOn)
+  onToggleNotification(isOn){
+    this.setState({
+      isOnNotifyToggleSwitch: !this.state.isOnNotifyToggleSwitch
+    })
+
+    if(!this.state.isOnNotifyToggleSwitch)
+    alert('Notifications enabled.')
+    else
+      alert('Notifications Disabled.')
+  }
+
+
+  onToggleBadge(isOn){
+    this.setState({
+      isOnBadgeToggleSwitch: !this.state.isOnBadgeToggleSwitch
+    })
+
+    if(!this.state.isOnBadgeToggleSwitch)
+    alert('Badges enabled.')
+    else
+      alert('Badges Disabled.')
   }
 
   
+
   render(){
     return(
       <ScrollView>
@@ -101,20 +122,15 @@ export default class Profile extends Component{
           label="LOCATION SERVICES"
           onColor="limegreen"
           isOn={this.state.isOnDefaultToggleSwitch}
-          onToggle={isOnDefaultToggleSwitch => { this.requestPermission()
-          }}
-          
+          onToggle={() => this.requestPermission() }
         />
         </View>
          <View style={styles.togglecontainer}>
         <ToggleSwitch
           label="PUSH NOTOFICATION"
           onColor="limegreen"
-          isOn={this.state.isOnLargeToggleSwitch}
-          onToggle={isOnLargeToggleSwitch => {
-            this.setState({ isOnLargeToggleSwitch });
-            this.onToggle(isOnLargeToggleSwitch);
-          }}
+          isOn={this.state.isOnNotifyToggleSwitch}
+          onToggle={() => this.onToggleNotification() }
         />
         </View>
 
@@ -122,11 +138,8 @@ export default class Profile extends Component{
         <ToggleSwitch
           label="BADGES"
           onColor="limegreen"
-          isOn={this.state.isOnBlueToggleSwitch}
-          onToggle={isOnBlueToggleSwitch => {
-            this.setState({ isOnBlueToggleSwitch });
-            this.onToggle(isOnBlueToggleSwitch);
-          }}
+          isOn={this.state.isOnBadgeToggleSwitch}
+          onToggle={() => this.onToggleBadge() }
         />
         </View>
         <View style={{marginTop:20,justifyContent:'center',alignItems:'center'}}>

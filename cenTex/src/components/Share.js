@@ -81,7 +81,7 @@ export default class Share extends Component{
        <Button
         icon={{name: 'mobile1', type: 'antdesign',color:'white',size:30,}}
         buttonStyle={{height: 40, width: 200, borderRadius: 10,backgroundColor:'royalblue',marginTop:20}}
-            onPress={() => Linking.openURL('sms:8107196365?body=Hey,This is a text message only....')}
+            onPress={() => Linking.openURL('sms:8899554422?body=Hey,This is a text message only....')}
             title="TEXT A FRIEND!"
         />
         

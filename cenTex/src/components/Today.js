@@ -135,10 +135,16 @@ class App extends Component {
     this.setState({ expanded: !this.state.expanded });
   };
 
-     componentWillMount(){
-    
-     }
-
+    componentDidMount(){
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.setState({
+            latitude:position.coords.latitude,
+            longitude:position.coords.longitude
+          })
+        }
+      )
+    }
 
   render() {
     
@@ -195,8 +201,7 @@ class App extends Component {
 
     }
 
-    // console.log('weather api data :: ', this.props.state);
-    
+      // console.log('weather api data :: ', this.props.state); 
     return (
       <ScrollView>
         <View style={styles.container}>
