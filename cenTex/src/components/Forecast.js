@@ -109,11 +109,13 @@ class Forecast extends Component {
     const uuidv4 = require('uuid/v4');
          
     return (
+      dataForecast.data ?
+      
       <ScrollView style={{ flex: 1, position: 'relative' }}>
             <View style={styles.MainContainer}>
         <FlatList
           key = {uuidv4()}
-          data= { dataForecast ? dataForecast.data : null }
+          data= { dataForecast.data ? dataForecast.data : null }
           renderItem={({ item }) => (
            
             <View
@@ -170,6 +172,13 @@ class Forecast extends Component {
         />
       </View>        
       </ScrollView>
+
+        :
+        <View>
+          <Text>
+            No Data Available!
+          </Text>
+        </View>
 
     );
   }

@@ -15,7 +15,7 @@ export function locationData(latitude, longitude){
                     
 
                         .then(response => {
-                            if(response.data.length > 0){
+                            if(response.data.length > 2){
                                 return response.data
                             }
                             else{

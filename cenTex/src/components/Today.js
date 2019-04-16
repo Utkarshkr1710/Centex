@@ -204,7 +204,9 @@ class App extends Component {
 
       // console.log('weather api data :: ', this.props.state); 
     return (
-      
+
+      dataReducer.data ?
+
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.headerTextView}>
@@ -339,8 +341,12 @@ class App extends Component {
               <View style={styles.tabview}>
                 <Tabs>
                   <View title="GenPop" style={styles.content}>
-                    <Text style={styles.header}>GENERAL POPULATION{"\n"}</Text>
-                    <Text style={styles.text}>
+                    <Text style={styles.header}>GENERAL POPULATION{"\n"}</Text>  03: {dataReducer.data ? dataReducer.data[0].AQI : 'NA'}
+                     PM 2.5: {dataReducer.data ? dataReducer.data[1].AQI : 'NA'}  
+                      PM
+                    <Text style={styles.text}>  03: {dataReducer.data ? dataReducer.data[0].AQI : 'NA'}
+                     PM 2.5: {dataReducer.data ? dataReducer.data[1].AQI : 'NA'}  
+                      PM
                       It’s a good day to be active outside.
                     </Text>
                   </View>
@@ -1419,6 +1425,16 @@ class App extends Component {
           </View>
         </View>
       </ScrollView>
+
+
+:
+<View>
+  <Text>
+    No Data Available!
+  </Text>
+</View>
+
+
     );
   }
 }
