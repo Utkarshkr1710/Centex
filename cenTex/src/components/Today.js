@@ -320,17 +320,9 @@ class App extends Component {
               <View style={styles.tabview}>
                 <Tabs>
                   <View title="GenPop" style={styles.content}>
-<<<<<<< HEAD
-                    <Text style={styles.header}>GENERAL POPULATION{"\n"}  03: {dataReducer.data ? dataReducer.data[0].AQI : 'NA'}
-                     PM 2.5: {dataReducer.data ? dataReducer.data[1].AQI : 'NA'}  
-                      PM </Text>
-                    <Text style={styles.text}>  03: {dataReducer.data ? dataReducer.data[0].AQI : 'NA'}
-                     PM 2.5: {dataReducer.data ? dataReducer.data[1].AQI : 'NA'}  
-                      PM
-=======
+
                     <Text style={styles.header}>GENERAL POPULATION{"\n"}  </Text>
                     <Text style={styles.text}>     
->>>>>>> b3c4d4a335c13c554c42d76b93afb794fde34140
                       It’s a good day to be active outside.
                     </Text>
                   </View>

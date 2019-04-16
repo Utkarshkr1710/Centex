@@ -86,11 +86,6 @@ class HomeScreen extends Component {
     if (this.state.isLoading) {
       return <SplashSreen />;
     }
-<<<<<<< HEAD
-
-=======
-//console.log(this.state)
->>>>>>> b3c4d4a335c13c554c42d76b93afb794fde34140
     const { navigate } = this.props.navigation;
     return (
       

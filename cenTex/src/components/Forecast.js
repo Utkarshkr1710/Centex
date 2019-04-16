@@ -111,7 +111,7 @@ class Forecast extends Component {
          
     return (
       dataForecast.data ?
-      <SafeAreaView>
+      // <SafeAreaView>
       <ScrollView style={{ flex: 1, position: 'relative' }}>
             <View style={styles.MainContainer}>
         <FlatList
@@ -173,7 +173,7 @@ class Forecast extends Component {
         />
       </View>        
       </ScrollView>
-      </SafeAreaView>
+      // </SafeAreaView>
 
         :
         <View>
