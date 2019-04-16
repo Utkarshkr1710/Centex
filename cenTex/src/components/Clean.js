@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,ScrollView,TouchableOpacity} from 'react-native';
+import {SafeAreaView,Platform, StyleSheet, Text, View,ScrollView,TouchableOpacity} from 'react-native';
 import { Button } from 'react-native-elements';
 
 export default class Clean extends Component{
@@ -8,6 +8,7 @@ export default class Clean extends Component{
   }
 	render(){
 		return(
+    <SafeAreaView>
     <ScrollView>
        <View style={{flex: 1,}}>
        <View style={{flex:1,backgroundColor:'royalblue',flexDirection:'row',height:50}}>
@@ -52,6 +53,7 @@ export default class Clean extends Component{
       </View>
       </View>
     </ScrollView>
+    </SafeAreaView>
 			);
 	}
 }

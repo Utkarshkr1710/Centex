@@ -10,13 +10,17 @@ import {
 export function zipCodeData(text){
 
     const pinCode = text;
-    const API_URL = `
-    http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=${pinCode}&distance=25&API_KEY=CBDC5761-F8E5-4F48-9773-EE1BF4CA258C`
+    const API_URL = `http://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=${pinCode}&distance=25&API_KEY=CBDC5761-F8E5-4F48-9773-EE1BF4CA258C`
+
 
 
     const request = axios.get(`${API_URL}`)
                     .then(response => {
                         if(response.data.length > 2){
+<<<<<<< HEAD
+=======
+                            console.log('kk',response)
+>>>>>>> b3c4d4a335c13c554c42d76b93afb794fde34140
                             return response.data
                         }
                         else{
@@ -41,7 +45,7 @@ export function zipCodeDataForecast(text){
     const request = axios.get(`${API_URL2}`)
     
                         .then(response => {
-                            if(response.data.length > 0){
+                            if(response.data.length > 2){
                                return response.data
                             }
                             else{
@@ -68,8 +72,15 @@ export function zipCodeWeatherData(text){
 
 
     const request = axios.get(`${API_URL3}`)
-    
-                    .then(response => response.data)
+                        
+                        .then(response => {
+                            if(response.data){
+                              return response.data
+                            }
+                            else{
+                                return false
+                            }
+                        })
                     
                     .catch(err => console.error(err));
                     

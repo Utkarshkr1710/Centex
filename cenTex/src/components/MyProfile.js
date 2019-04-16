@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,Image,TouchableOpacity,ScrollView, PermissionsAndroid} from 'react-native';
+import {SafeAreaView,Platform, StyleSheet, Text, View,Image,TouchableOpacity,ScrollView, PermissionsAndroid} from 'react-native';
 import Icons from 'react-native-vector-icons/AntDesign';
 import ToggleSwitch from 'toggle-switch-react-native';
 import { Button,Divider } from 'react-native-elements';
@@ -91,6 +91,7 @@ export default class Profile extends Component{
 
   render(){
     return(
+      <SafeAreaView>
       <ScrollView>
         <View style={{flex:1}}>
         <View style={{flex:1,backgroundColor:'royalblue',flexDirection:'row',height:50}}>
@@ -184,6 +185,7 @@ export default class Profile extends Component{
         </View>
 
       </ScrollView>
+      </SafeAreaView>
 
     );
   }

@@ -12,7 +12,8 @@ import {
   Image,
   Alert,
   YellowBox,
-  ScrollView
+  ScrollView,
+  SafeAreaView
 } from "react-native";
 import Speedometer from "react-native-speedometer-chart";
 import PureChart from "react-native-pure-chart";
@@ -110,7 +111,7 @@ class Forecast extends Component {
          
     return (
       dataForecast.data ?
-      
+      <SafeAreaView>
       <ScrollView style={{ flex: 1, position: 'relative' }}>
             <View style={styles.MainContainer}>
         <FlatList
@@ -172,6 +173,7 @@ class Forecast extends Component {
         />
       </View>        
       </ScrollView>
+      </SafeAreaView>
 
         :
         <View>
@@ -179,6 +181,7 @@ class Forecast extends Component {
             No Data Available!
           </Text>
         </View>
+        
 
     );
   }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback,Image,Dimensions,ScrollView,BackHandler,TouchableOpacity } from 'react-native';
+import { SafeAreaView,StyleSheet, Text, View, TouchableWithoutFeedback,Image,Dimensions,ScrollView,BackHandler,TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Button } from 'react-native-elements';
 import Collapsible from 'react-native-collapsible';
@@ -90,6 +90,7 @@ const sampleAccordianData = [
   }
   render(){
     return(
+      <SafeAreaView>
        <View style={{flex: 1,}}>
           <View style={{backgroundColor:'royalblue',flexDirection:'row',height:50}}>
         <View style={{marginTop:5}}>
@@ -142,6 +143,7 @@ const sampleAccordianData = [
           </ScrollView>
         </View>
       </View>
+      </SafeAreaView>
       );
   }
 }

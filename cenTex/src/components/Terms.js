@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
+import {SafeAreaView,Platform, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 import { Button } from 'react-native-elements'
 
 export default class Terms extends Component{
 	render(){
 		return(
+      <SafeAreaView>
        <View style={{flex: 1,}}>
         <View style={{backgroundColor:'royalblue',flexDirection:'row',height:50}}>
         <View style={{marginTop:5}}>
@@ -30,6 +31,7 @@ export default class Terms extends Component{
 				<Text style={styles.tText}>TERMS OF USE</Text>
 			</View>
       </View>
+      </SafeAreaView>
 			);
 	}
 }
