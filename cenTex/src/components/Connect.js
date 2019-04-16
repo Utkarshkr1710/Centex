@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,Linking,TouchableOpacity,ScrollView} from 'react-native';
+import {SafeAreaView,Platform, StyleSheet, Text, View,Linking,TouchableOpacity,ScrollView} from 'react-native';
 import Icons from 'react-native-vector-icons/AntDesign';
 import { Button,Header} from 'react-native-elements';
 
@@ -7,6 +7,7 @@ import { Button,Header} from 'react-native-elements';
 export default class Connect extends Component{
 	render(){
 		return(
+      <SafeAreaView>
       <ScrollView>
         <View style={{flex:1}}>
         <View style={{flex:1,backgroundColor:'royalblue',flexDirection:'row',height:50}}>
@@ -67,6 +68,7 @@ export default class Connect extends Component{
         </View>
 
       </ScrollView>
+      </SafeAreaView>
        
 			);
 	}

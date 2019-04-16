@@ -10,7 +10,8 @@ import {
   View,
   Image,
   StatusBar,
-  TextInput
+  TextInput,
+  SafeAreaView
 } from "react-native";
 import SplashSreen from "./SplashSreen";
 import { Button } from "react-native-elements";
@@ -87,6 +88,7 @@ class HomeScreen extends Component {
 console.log(this.state)
     const { navigate } = this.props.navigation;
     return (
+      
       <View style={styles.container}>
         <StatusBar barStyle="light-content" backgroundColor="royalblue" />
         <View style={styles.card}>

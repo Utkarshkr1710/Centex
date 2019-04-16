@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,TouchableOpacity,TouchableWithoutFeedback,ScrollView} from 'react-native';
+import {SafeAreaView,Platform, StyleSheet, Text, View,TouchableOpacity,TouchableWithoutFeedback,ScrollView} from 'react-native';
 import Icons from 'react-native-vector-icons/AntDesign';
 
 
@@ -20,6 +20,7 @@ export default class Profile extends Component{
   
   render(){
     return(
+      <SafeAreaView>
       <ScrollView>
        <View style={styles.container}>
        <View style={styles.text}>
@@ -55,6 +56,7 @@ export default class Profile extends Component{
        
         </View>
         </ScrollView>
+        </SafeAreaView>
 
       );
   }

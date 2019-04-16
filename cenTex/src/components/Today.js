@@ -11,7 +11,8 @@ import {
   UIManager,
   TouchableOpacity,
   ScrollView,
-  TouchableHighlight
+  TouchableHighlight,
+  SafeAreaView
 } from "react-native";
 
 import Icons from "react-native-vector-icons/AntDesign";
@@ -206,7 +207,7 @@ class App extends Component {
     return (
 
       dataReducer.data ?
-
+      <SafeAreaView>
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.headerTextView}>
@@ -1425,6 +1426,7 @@ class App extends Component {
           </View>
         </View>
       </ScrollView>
+      </SafeAreaView>
 
 
 :

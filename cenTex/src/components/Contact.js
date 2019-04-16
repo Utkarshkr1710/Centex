@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View,KeyboardAvoidingView,TextInput,TouchableOpacity,ScrollView} from 'react-native';
+import {SafeAreaView,Platform, StyleSheet, Text, View,KeyboardAvoidingView,TextInput,TouchableOpacity,ScrollView} from 'react-native';
 import { Button } from 'react-native-elements';
 
 export default class Contacts extends Component{
@@ -29,6 +29,7 @@ export default class Contacts extends Component{
 }  */
 	render(){
 		return(
+      <SafeAreaView>
       <ScrollView>
        <View style={styles.container}>
        <View style={{flex:1,backgroundColor:'royalblue',flexDirection:'row',height:50}}>
@@ -90,6 +91,7 @@ export default class Contacts extends Component{
         </View>
        </View>
     </ScrollView>
+    </SafeAreaView>
 			);
 	}
 }
