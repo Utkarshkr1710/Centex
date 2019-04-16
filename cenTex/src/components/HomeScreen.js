@@ -29,16 +29,17 @@ class HomeScreen extends Component {
 
 
   componentWillMount(){
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        this.setState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        })
-      }
-    )
+    if (Platform.OS === "android") {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.setState({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          })
+        }
+      )
+    }
   }
-
 
 
   performTimeConsumingTask = async () => {
@@ -84,7 +85,7 @@ class HomeScreen extends Component {
     if (this.state.isLoading) {
       return <SplashSreen />;
     }
-console.log(this.state)
+
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>

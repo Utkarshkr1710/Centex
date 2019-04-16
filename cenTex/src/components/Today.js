@@ -15,7 +15,6 @@ import {
 } from "react-native";
 
 import Icons from "react-native-vector-icons/AntDesign";
-import { Button, Header } from "react-native-elements";
 import Overlay from "react-native-modal-overlay";
 import PureChart from "react-native-pure-chart";
 import Speedometer from "react-native-speedometer-chart";
@@ -25,6 +24,7 @@ import Tabs from "./tabs";
 // import { IconButton, Colors, withTheme } from "react-native-paper";
 import Modal from "react-native-modal";
 import { colors } from '../Resources/colorCode';
+import { Button } from 'react-native-elements';
 
 
 let sampleData = [
@@ -136,42 +136,21 @@ class App extends Component {
   };
 
     componentDidMount(){
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          this.setState({
-            latitude:position.coords.latitude,
-            longitude:position.coords.longitude
-          })
-        }
-      )
+      if (Platform.OS === "android") {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            this.setState({
+              latitude:position.coords.latitude,
+              longitude:position.coords.longitude
+            })
+          }
+        )
+      }
     }
 
   render() {
-    console.log(this.props.state)
     
-    const fill = 'rgb(134, 65, 244)'
-    const databAR   = [ 50, 10, 40, 95, -4, -24, null, 85, undefined, 0, 35, 53, -53, 24, 50, -20, -80 ]
-    
-
-    const {
-      isLoading,
-      weatherCondition,
-      temperature,
-      humidity,
-      Max_temp,
-      Min_temp,
-      visibility,
-      windSpeed,
-      search,
-      pressure,
-      StateCode,
-      O3,
-      value,
-      PM,
-      PM10,
-      CO
-    } =  this.state;
-    
+    const { isLoading } =  this.state;
     
     const { weatherDataCurrent } = this.props.state;
     const { navigation } = this.props;
@@ -202,7 +181,6 @@ class App extends Component {
 
     }
 
-      // console.log('weather api data :: ', this.props.state); 
     return (
 
       dataReducer.data ?
@@ -329,8 +307,8 @@ class App extends Component {
                     }}
                   >
                     03: {dataReducer.data ? dataReducer.data[0].AQI : 'NA'}
-                     PM 2.5: {dataReducer.data ? dataReducer.data[1].AQI : 'NA'}  
-                      PM 10:{dataReducer.data ? dataReducer.data[2].AQI : 'NA'}{'\n\n'}
+                     PM 2.5: {dataReducer.data[1] ? dataReducer.data[1].AQI : 'NA'}  
+                      PM 10:{dataReducer.data[2] ? dataReducer.data[2].AQI : 'NA'}{'\n\n'}
                     CO: {  }              SO2:                          NO2:
                   </Text>
                   </View>
@@ -341,9 +319,9 @@ class App extends Component {
               <View style={styles.tabview}>
                 <Tabs>
                   <View title="GenPop" style={styles.content}>
-                    <Text style={styles.header}>GENERAL POPULATION{"\n"}</Text>  03: {dataReducer.data ? dataReducer.data[0].AQI : 'NA'}
+                    <Text style={styles.header}>GENERAL POPULATION{"\n"}  03: {dataReducer.data ? dataReducer.data[0].AQI : 'NA'}
                      PM 2.5: {dataReducer.data ? dataReducer.data[1].AQI : 'NA'}  
-                      PM
+                      PM </Text>
                     <Text style={styles.text}>  03: {dataReducer.data ? dataReducer.data[0].AQI : 'NA'}
                      PM 2.5: {dataReducer.data ? dataReducer.data[1].AQI : 'NA'}  
                       PM
@@ -1428,9 +1406,10 @@ class App extends Component {
 
 
 :
+
 <View>
   <Text>
-    No Data Available!
+    No Data Available!{'\n'}
   </Text>
 </View>
 
