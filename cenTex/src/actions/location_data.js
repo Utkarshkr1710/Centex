@@ -5,8 +5,8 @@ import {
    LOCATION_WEATHER_CURRENT
 } from './types';
 export function locationData(latitude, longitude){
-    const lat = latitude ? latitude : `38.919`;
-    const long = longitude ? longitude : `-77.013`;
+    const lat = `38.919`;
+    const long = `-77.013`;
 
     const API_URL = `http://www.airnowapi.org/aq/observation/latLong/current/?format=application/json&latitude=${lat}&longitude=${long}&distance=25&API_KEY=CBDC5761-F8E5-4F48-9773-EE1BF4CA258C`
 
@@ -36,8 +36,8 @@ export function locationData(latitude, longitude){
 
 export function locationDataForecast(latitude, longitude){
     
-    const lat = latitude ? latitude : `38.919`;
-    const long = longitude ? longitude : `-121.6834`;
+    const lat = `38.919`;
+    const long = `-121.6834`;
 
     const API_URL2 = `http://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=${lat}&longitude=${long}&date=&{today}&distance=25&API_KEY=CBDC5761-F8E5-4F48-9773-EE1BF4CA258C`
 
