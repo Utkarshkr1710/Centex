@@ -12,7 +12,19 @@ export function locationData(latitude, longitude){
 
 
     const request = axios.get(`${API_URL}`)
-                    .then(response => response.data)
+                    
+
+                        .then(response => {
+                            if(response.data.length > 0){
+                                return response.data
+                            }
+                            else{
+                                return false
+                            }
+                        })
+                        
+
+
                     .catch(err => console.error(err));
                     
 
@@ -31,7 +43,19 @@ export function locationDataForecast(latitude, longitude){
 
 
     const request = axios.get(`${API_URL2}`)
-                    .then(response => response.data)
+
+
+                    .then(response => {
+                        if(response.data.length > 0){
+                          return response.data
+                        }
+                        else{
+                            return false
+                        }
+                    })
+                    
+
+
                     .catch(err => console.error(err));
                     
 

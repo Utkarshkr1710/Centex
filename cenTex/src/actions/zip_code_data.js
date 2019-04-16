@@ -15,7 +15,14 @@ export function zipCodeData(text){
 
 
     const request = axios.get(`${API_URL}`)
-                    .then(response => response.data)
+                    .then(response => {
+                        if(response.data.length > 0){
+                            return response.data
+                        }
+                        else{
+                            return false
+                        }
+                    })
                     .catch(err => console.error(err));
                     
 
@@ -32,8 +39,18 @@ export function zipCodeDataForecast(text){
 
 
     const request = axios.get(`${API_URL2}`)
-                    .then(response => response.data)
-                    .catch(err => console.error(err));
+    
+                        .then(response => {
+                            if(response.data.length > 0){
+                               return response.data
+                            }
+                            else{
+                                return false
+                            }
+                        })
+                        
+
+                        .catch(err => console.error(err));
                     
 
     return {
@@ -51,7 +68,9 @@ export function zipCodeWeatherData(text){
 
 
     const request = axios.get(`${API_URL3}`)
+    
                     .then(response => response.data)
+                    
                     .catch(err => console.error(err));
                     
 
