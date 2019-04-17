@@ -162,6 +162,9 @@ const styles = StyleSheet.create({
     padding:16,
     marginBottom:20,
     backgroundColor:'#fff',
+    borderColor: '#777',
+    borderWidth: 1,
+    borderRadius:8
                    //placeholderTextColor:"#9a73ef"
 
   },

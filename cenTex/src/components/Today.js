@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from "react";
 import {connect} from 'react-redux';
-
-import BarChartExample from './charts';
 import {
   Text,
   View,
@@ -189,51 +187,38 @@ class App extends Component {
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.headerTextView}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => {
-                this.props.navigation.navigate("Profile");
-              }}
-            >
-              <Text style={styles.headerText1}>CenTex AIR</Text>
-              <Icons
-                style={{ paddingLeft: 275, marginTop: -28 }}
+          <Text style={styles.headerText1}>CenTex AIR</Text>
+          <Icons
+                style={{ paddingLeft:5, marginTop:8 }}
                 name="down"
                 size={30}
                 color="white"
+                onPress={() => {
+                  this.props.navigation.navigate("Profile");
+                }}
               />
-            </TouchableOpacity>
           </View>
           <View style={styles.airview}>
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={this.changeLayout}
-              style={styles.Btn}
-            >
+            <View style={{flex:1,backgroundColor:'royalblue',height:50,flexDirection:'row'}}>
               <Text style={styles.airtext}>AIR QUALITY</Text>
               <Icons
-                style={{ paddingLeft: 370, marginTop: -28 }}
+                  style={{marginTop:18,paddingLeft:5 }}
+                  name="infocirlceo"
+                  type="antdesign"
+                  color="white"
+                  size={15}
+                  onPress={this.showOverlay.bind(this)}
+                />
+                <View style={{flex:1,justifyContent:"center",alignItems:"flex-end"}}>
+                <Icons
+                style={{paddingRight:10 }}
                 name="down"
                 size={30}
                 color="white"
+                onPress={this.changeLayout}
               />
-              <Button
-                icon={{
-                  name: "infocirlceo",
-                  type: "antdesign",
-                  color: "white",
-                  size: 20
-                }}
-                buttonStyle={{
-                  height: 40,
-                  width: 50,
-                  marginTop: -35,
-                  backgroundColor: "transparent",
-                  margin: 115
-                }}
-                onPress={this.showOverlay.bind(this)}
-              />
-            </TouchableOpacity>
+              </View>
+            </View>
             <View
               style={{
                 flexDirection: "row",
@@ -1431,11 +1416,12 @@ const styles = StyleSheet.create({
   airtext: {
     color: "white",
     fontSize: 20,
-    paddingLeft: 10
+    paddingLeft:20,
+    marginTop:11
   },
 
   airview: {
-    marginTop: 5
+    marginTop: 5,
   },
 
   Btn: {
@@ -1447,12 +1433,15 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
     fontSize: 22,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginTop:7
   },
   headerTextView: {
+    flexDirection:'row',
     height: 50,
     backgroundColor: "royalblue",
     justifyContent: "center"
+
   },
 
   pollenView: {

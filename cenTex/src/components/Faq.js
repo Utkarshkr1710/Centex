@@ -4,7 +4,8 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { Button } from 'react-native-elements';
 import Collapsible from 'react-native-collapsible';
 import SimpleAccordion from 'react-native-simple-accordian';
-const deviceWidth = Dimensions.get('window').width
+const deviceWidth = Dimensions.get('window').width;
+
 
 const ozone = 'Ozone is a form of oxygen that has three atoms, instead of the usual two, which is why its also sometimes written using the chemical symbol, O3. Ozone is a colorless, odorless atmospheric gas thats formed by a chemical reaction between nitrogen  oxides(NOx)and volatile organic compounds in sunlight at low altitudes to form ground-level ozone, which is the main component of smog.';
 const ground= 'Ground-level ozone is the most prevalent air pollutant in Texas and the nation. Ground-level ozone is often one of several pollutants that make up "smog," which you may recognize as the reddish-brown haze that forms when air quality is particularly poor. Howerver, because ozone itself is colorless, the air can clear even when high ozone concentrations are present.';
@@ -76,7 +77,15 @@ const sampleAccordianData = [
     return (
       <View style={{backgroundColor:'royalblue',flexDirection:'row'}}>
         <Text style={[styles.headerText,{width:deviceWidth-80,padding:10,textAlign:'left',color:'white',}]}>{section.title}</Text>
-        
+        <View style={{flex:1,justifyContent:"center",alignItems:"flex-end"}}>
+        <Icon
+                style={{paddingRight:10 }}
+                name="down"
+                size={30}
+                color="white"
+                onPress={this.changeLayout}
+              />
+      </View>
       </View>
     );
   }
