@@ -186,6 +186,10 @@ class App extends Component {
 
     }
 
+    const AQI_MAX = 100;
+
+
+
     return (
 
       dataReducer.data ?
@@ -319,7 +323,7 @@ class App extends Component {
                   </Text>
                   <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
                     <ProgressBar 
-                    progress={0.5} 
+                    progress= {dataReducer.data ? ((dataReducer.data[0].AQI)/AQI_MAX) : 0}
                     width={60}
                     borderColor='#000'
                     color='#000'
@@ -337,7 +341,7 @@ class App extends Component {
                   </Text>
                   <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
                     <ProgressBar 
-                    progress={0.5} 
+                    progress= {dataReducer.data ? ((dataReducer.data[1].AQI)/AQI_MAX) : 0} 
                     width={60}
                     borderColor='#000'
                     color='#000'
@@ -355,7 +359,7 @@ class App extends Component {
                   </Text>
                   <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
                     <ProgressBar 
-                    progress={0.5} 
+                    progress= {dataReducer.data ? ((dataReducer.data[2].AQI)/AQI_MAX) : 0} 
                     width={60}
                     borderColor='#000'
                     color='#000'
@@ -379,7 +383,7 @@ class App extends Component {
                   </Text>
                   <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
                     <ProgressBar 
-                    progress={0.5} 
+                    progress={0} 
                     width={60}
                     borderColor='#000'
                     color='#000'
@@ -397,7 +401,7 @@ class App extends Component {
                   </Text>
                   <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
                     <ProgressBar 
-                    progress={0.5} 
+                    progress={0} 
                     width={60}
                     borderColor='#000'
                     color='#000'
@@ -415,7 +419,7 @@ class App extends Component {
                   </Text>
                   <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
                     <ProgressBar 
-                    progress={0.5} 
+                    progress={0} 
                     width={60}
                     borderColor='#000'
                     color='#000'
