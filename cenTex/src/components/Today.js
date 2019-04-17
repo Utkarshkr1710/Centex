@@ -13,6 +13,8 @@ import {
   SafeAreaView
 } from "react-native";
 
+import BarChartView from './BarChart';
+
 import Icons from "react-native-vector-icons/AntDesign";
 import Overlay from "react-native-modal-overlay";
 import PureChart from "react-native-pure-chart";
@@ -442,7 +444,7 @@ class App extends Component {
               }}
             >
 
-              <PureChart data={data} type="bar" />
+          <BarChartView />
 
             </View>
             <View style={styles.weatherView}>
