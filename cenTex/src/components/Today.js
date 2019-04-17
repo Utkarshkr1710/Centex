@@ -188,7 +188,7 @@ class App extends Component {
 
     const AQI_MAX = 100;
 
-
+console.log('platform is : ',Platform.OS)
 
     return (
 

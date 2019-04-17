@@ -74,7 +74,7 @@ class BarChartView extends React.PureComponent {
                     fill={ item.value > CUT_OFF ? 'black' : 'black' }
                     alignmentBaseline={ 'middle' }
                 >
-                    {item.label}
+                    {item.label} ({item.value}%)
                 </Text>
             ))
         )
