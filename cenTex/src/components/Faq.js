@@ -90,7 +90,7 @@ const sampleAccordianData = [
   }
   render(){
     return(
-      <SafeAreaView>
+
        <View style={{flex: 1,}}>
           <View style={{backgroundColor:'royalblue',flexDirection:'row',height:50}}>
         <View style={{marginTop:5}}>
@@ -143,7 +143,6 @@ const sampleAccordianData = [
           </ScrollView>
         </View>
       </View>
-      </SafeAreaView>
       );
   }
 }
