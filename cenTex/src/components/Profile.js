@@ -31,25 +31,59 @@ export default class Profile extends Component{
           </Text>
         </View>
         <View style={{marginTop:80}}>
-
-        <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:'royalblue',height:50,justifyContent:'center'}}
-        onPress={()=>{this.props.navigation.navigate('Mission')}}> 
-          <View style={{}}>
+        <View style={{flex:1,backgroundColor:'royalblue',height:50,flexDirection:'row'}}>
               <Text style={styles.headerText1}>MISSION</Text>
-          </View>
-          </TouchableOpacity>
-           <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:'royalblue',height:50,justifyContent:'center',marginTop:20}}
-        onPress={()=>{this.props.navigation.navigate('Faq')}}>
-          <Text style={styles.headerText1}>FAQ</Text>
-          </TouchableOpacity>
-           <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:'royalblue',height:50,justifyContent:'center',marginTop:20}}
-        onPress={()=>{this.props.navigation.navigate('Clean')}}>
-          <Text style={styles.headerText1}>CLEAN AIR TIPS</Text>
-          </TouchableOpacity>
-           <TouchableOpacity activeOpacity={0.8} style={{backgroundColor:'royalblue',height:50,justifyContent:'center',marginTop:20}}
-        onPress={()=>{this.props.navigation.navigate('Contact')}}>
-          <Text style={styles.headerText1}>CONTACT</Text>
-          </TouchableOpacity>
+              <View style={{flex:1,justifyContent:"center",alignItems:"flex-end"}}>
+                <Icons
+                style={{paddingRight:10 }}
+                name="right"
+                size={30}
+                color="white"
+                onPress={()=>{this.props.navigation.navigate('Mission')}}
+              />
+              </View>
+        </View>
+
+        <View style={{flex:1,backgroundColor:'royalblue',height:50,flexDirection:'row',marginTop:5}}>
+              <Text style={styles.headerText1}>FAQ</Text>
+              <View style={{flex:1,justifyContent:"center",alignItems:"flex-end"}}>
+                <Icons
+                style={{paddingRight:10 }}
+                name="right"
+                size={30}
+                color="white"
+                onPress={()=>{this.props.navigation.navigate('Faq')}}
+              />
+              </View>
+        </View>
+
+        <View style={{flex:1,backgroundColor:'royalblue',height:50,flexDirection:'row',marginTop:5}}>
+              <Text style={styles.headerText1}>CLEAN AIR TIPS</Text>
+              <View style={{flex:1,justifyContent:"center",alignItems:"flex-end"}}>
+                <Icons
+                style={{paddingRight:10 }}
+                name="right"
+                size={30}
+                color="white"
+                onPress={()=>{this.props.navigation.navigate('Clean')}}
+              />
+              </View>
+        </View>
+
+        <View style={{flex:1,backgroundColor:'royalblue',height:50,flexDirection:'row',marginTop:5}}>
+              <Text style={styles.headerText1}>CONTACT</Text>
+              <View style={{flex:1,justifyContent:"center",alignItems:"flex-end"}}>
+                <Icons
+                style={{paddingRight:10 }}
+                name="right"
+                size={30}
+                color="white"
+                onPress={()=>{this.props.navigation.navigate('Contact')}}
+              />
+              </View>
+        </View>
+       
+           
           
 
         </View>
@@ -107,6 +141,7 @@ const styles = StyleSheet.create({
     color:'white',
     fontSize:20,
     paddingLeft:20,
+    marginTop:10
    },
    faqText:{
      color:'white',
