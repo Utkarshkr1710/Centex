@@ -17,7 +17,6 @@ export function zipCodeData(text){
     const request = axios.get(`${API_URL}`)
                     .then(response => {
                         if(response.data.length > 2){
-                            console.log('kk',response)
                             return response.data
                         }
                         else{
