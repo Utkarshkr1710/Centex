@@ -63,13 +63,13 @@ const sampleAccordianData = [
         super(props)
         this.state = ({
             content:'',
-            open: false,
+            open: false
         });
     }
 
 
   onChangeAccordian(section) {
-    this.setState({ open: section });
+    this.setState({ open: section, faqIco: !this.state.faqIco });
 
   }
 
@@ -78,13 +78,28 @@ const sampleAccordianData = [
       <View style={{backgroundColor:'royalblue',flexDirection:'row'}}>
         <Text style={[styles.headerText,{width:deviceWidth-80,padding:10,textAlign:'left',color:'white',}]}>{section.title}</Text>
         <View style={{flex:1,justifyContent:"center",alignItems:"flex-end"}}>
-        <Icon
+        
+        {
+            !isOpen ?
+            <Icon
                 style={{paddingRight:10 }}
                 name="down"
                 size={30}
                 color="white"
-                onPress={this.changeLayout}
               />
+
+                :
+                <Icon
+                style={{paddingRight:10 }}
+                name="up"
+                size={30}
+                color="white"         
+              />
+
+        }
+        
+        
+
       </View>
       </View>
     );

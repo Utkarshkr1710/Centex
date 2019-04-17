@@ -13,6 +13,8 @@ import {
   SafeAreaView
 } from "react-native";
 
+import ProgressBar from 'react-native-progress/Bar';
+
 import BarChartView from './BarChart';
 
 import Icons from "react-native-vector-icons/AntDesign";
@@ -101,7 +103,9 @@ class App extends Component {
       weather: [],
       error: null,
       visible: false,
-      weather: {}
+      weather: {},
+
+      airQuaIco: true
     };
 
     if (Platform.OS === "android") {
@@ -133,7 +137,7 @@ class App extends Component {
 
   changeLayout = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    this.setState({ expanded: !this.state.expanded });
+    this.setState({ expanded: !this.state.expanded, airQuaIco: !this.state.airQuaIco });
   };
 
     componentDidMount(){
@@ -212,6 +216,9 @@ class App extends Component {
                   onPress={this.showOverlay.bind(this)}
                 />
                 <View style={{flex:1,justifyContent:"center",alignItems:"flex-end"}}>
+                
+              {this.state.airQuaIco ? 
+                
                 <Icons
                 style={{paddingRight:10 }}
                 name="down"
@@ -219,6 +226,21 @@ class App extends Component {
                 color="white"
                 onPress={this.changeLayout}
               />
+              :
+
+              <Icons
+              style={{paddingRight:10 }}
+              name="up"
+              size={30}
+              color="white"
+              onPress={this.changeLayout}
+            />
+
+
+            }
+
+              
+
               </View>
             </View>
             <View
@@ -279,30 +301,142 @@ class App extends Component {
                     onPress={this.shOverlay.bind(this)}
                   />
                 </View>
-                <View
-                  style={{
-                    flex:1,
-                    flexDirection: "row",
-                  }}
-                >
-                <View style={{justifyContent:'space-around',alignItems:'center'}}>
-                  <Text
-                    style={{
-                      color: "black",
-                      fontWeight: "bold",
-                      fontSize: 16,
-                      paddingLeft:20
-                    }}
-                  >
-                    03: {dataReducer.data ? dataReducer.data[0].AQI : 'NA'}
-                     PM 2.5: {dataReducer.data[1] ? dataReducer.data[1].AQI : 'NA'}  
-                      PM 10:{dataReducer.data[2] ? dataReducer.data[2].AQI : 'NA'}{'\n\n'}
-                    CO: {  }              SO2:                          NO2:
+
+
+
+
+            
+            <View >
+              {/* Main */}
+
+              <View style={{flexDirection: 'row'}}>
+
+
+
+                <View style={{flexDirection: 'row', marginLeft: 20, marginTop: 10}}>
+                  <Text style={{fontSize: 16, fontWeight: 'bold', color: '#000'}}>
+                    O3  
                   </Text>
+                  <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
+                    <ProgressBar 
+                    progress={0.5} 
+                    width={60}
+                    borderColor='#000'
+                    color='#000'
+
+                    />
                   </View>
-                  
-                 
-                </View>
+
+                  </View>
+
+
+
+                  <View style={{flexDirection: 'row', marginLeft: 10, marginTop: 10}}>
+                  <Text style={{fontSize: 16, fontWeight: 'bold', color: '#000'}}>
+                    PM2.5
+                  </Text>
+                  <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
+                    <ProgressBar 
+                    progress={0.5} 
+                    width={60}
+                    borderColor='#000'
+                    color='#000'
+
+                    />
+                  </View>
+
+                  </View>
+
+
+                
+                  <View style={{flexDirection: 'row', marginLeft: 10, marginTop: 10}}>
+                  <Text style={{fontSize: 16, fontWeight: 'bold', color: '#000'}}>
+                    PM10
+                  </Text>
+                  <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
+                    <ProgressBar 
+                    progress={0.5} 
+                    width={60}
+                    borderColor='#000'
+                    color='#000'
+
+                    />
+                  </View>
+              </View>                
+
+              </View>
+
+
+
+
+              <View style={{flexDirection: 'row'}}>
+
+
+
+                <View style={{flexDirection: 'row', marginLeft: 20, marginTop: 10, width: 100}}>
+                  <Text style={{fontSize: 16, fontWeight: 'bold', color: '#000'}}>
+                    CO  
+                  </Text>
+                  <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
+                    <ProgressBar 
+                    progress={0.5} 
+                    width={60}
+                    borderColor='#000'
+                    color='#000'
+
+                    />
+                  </View>
+
+                  </View>
+
+
+
+                  <View style={{flexDirection: 'row', marginLeft: 10, marginTop: 10, width: 100}}>
+                  <Text style={{fontSize: 16, fontWeight: 'bold', color: '#000'}}>
+                    SO2 
+                  </Text>
+                  <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
+                    <ProgressBar 
+                    progress={0.5} 
+                    width={60}
+                    borderColor='#000'
+                    color='#000'
+
+                    />
+                  </View>
+
+                  </View>
+
+
+                
+                  <View style={{flexDirection: 'row', marginLeft: 10, marginTop: 10, width: 100}}>
+                  <Text style={{fontSize: 16, fontWeight: 'bold', color: '#000'}}>
+                    NO2 
+                  </Text>
+                  <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
+                    <ProgressBar 
+                    progress={0.5} 
+                    width={60}
+                    borderColor='#000'
+                    color='#000'
+
+                    />
+                  </View>
+              </View>                
+
+
+
+
+              </View>
+
+
+
+
+
+
+
+</View>  
+
               </View>
               <View style={styles.tabview}>
                 <Tabs>
