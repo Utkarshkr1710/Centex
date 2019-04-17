@@ -18,6 +18,7 @@ import {
 import Speedometer from "react-native-speedometer-chart";
 import PureChart from "react-native-pure-chart";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import BarChartForeCast from "./BarChartForecast";
 // import PropTypes from "prop-types";
 // import { weatherConditions } from "./WeatherConditions";
 
@@ -113,6 +114,7 @@ class Forecast extends Component {
       dataForecast.data ?
       // <SafeAreaView>
       <ScrollView style={{ flex: 1, position: 'relative' }}>
+      
             <View style={styles.MainContainer}>
         <FlatList
           key = {uuidv4()}
@@ -135,7 +137,7 @@ class Forecast extends Component {
                 <Speedometer
                   value={item.AQI}
                   totalValue={100}
-                  size={150}
+                  size={125}
                   outerColor="#d3d3d3"
                   internalColor={this.colorRender(item.AQI)}
                   showText
@@ -146,13 +148,14 @@ class Forecast extends Component {
               </View>
             <View
                 style={{
-                  marginTop: 20,
-                  justifyContent: "center",
-                  alignItems: "center"
+                  flex: 1,
+                  width: 1,
+                  height: 10
                 }}
             >
 
-              <PureChart data={sampleData} type="pie" size={90} />
+              {/* <PureChart data={sampleData} type="pie" size={90} /> */}
+              <BarChartForeCast />
               
               </View>
 

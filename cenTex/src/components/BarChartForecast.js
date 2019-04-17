@@ -4,7 +4,7 @@ import { BarChart, Grid, YAxis, XAxis } from 'react-native-svg-charts'
 import { Defs, LinearGradient, Stop, Text } from 'react-native-svg'
 import * as scale from 'd3-scale'
 
-class BarChartView extends React.PureComponent {
+class BarChartForecast extends React.PureComponent {
 
 
     colorLabel(val){
@@ -70,9 +70,10 @@ class BarChartView extends React.PureComponent {
                     key={ item.label }
                     x={ item.value > CUT_OFF ? x(0) + 10 : x(item.value) + 10 }
                     y={ y(index) + (bandwidth / 2) }
-                    fontSize={ 14 }
+                    fontSize={ 11 }
                     fill={ item.value > CUT_OFF ? 'black' : 'black' }
                     alignmentBaseline={ 'middle' }
+                    opacity= { 50 }
                 >
                     {item.label}
                 </Text>
@@ -80,7 +81,7 @@ class BarChartView extends React.PureComponent {
         )
 
         return (
-            <View style={{ flexDirection: 'row', height: 200, paddingVertical: 16 }}>
+            <View style={{ flexDirection: 'row', height: 120, paddingVertical: 16 }}>
                 <YAxis
                     data={ data }
                     yAccessor={ ({ index }) => index }
@@ -88,6 +89,7 @@ class BarChartView extends React.PureComponent {
                     contentInset={{ top: 10, bottom: 10 }}
                     spacingInner={ 0.2 }
                     formatLabel={ (_, index) => data[ index ].name }
+                    
                 />
                
                 <BarChart
@@ -114,4 +116,4 @@ class BarChartView extends React.PureComponent {
 
 }
 
-export default BarChartView
+export default BarChartForecast
