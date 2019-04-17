@@ -56,28 +56,15 @@ var data = [
   {
     seriesName: "series1",
     data: [
-      { x: "10pm", y: 30 },
-      { x: "12pm", y: 60 },
-      { x: "2pm", y: 900 },
-      { x: "4pm", y: 120 },
-      { x: "6pm", y: 150 },
+      { x: "10pm", y: 60 },
+      { x: "12pm", y: 80 },
+      { x: "2pm", y: 400 },
+      { x: "4pm", y: 100 },
+      { x: "6pm", y: 250 },
       { x: "8pm", y: 170 }
     ],
     color: "#297AB1"
   }
-  // ,
-  // {
-  //   seriesName: "series2",
-  //   data: [
-  //     { x: "10pm", y: 300 },
-  //     { x: "12pm", y: 560 },
-  //     { x: "2pm", y: 940 },
-  //     { x: "4pm", y: 120 },
-  //     { x: "6pm", y: 120 },
-  //     { x: "8pm", y: 1110 }
-  //   ],
-  //   color: "#29CAB1"
-  // }
 ];
 
 class App extends Component {
@@ -159,9 +146,7 @@ class App extends Component {
     
     const { weatherDataCurrent } = this.props.state;
     const { navigation } = this.props;
-    const itemId = navigation.getParam('itemId', 'NO-ID');
-    const otherParam = navigation.getParam('otherParam', 'some default value');
-
+   
     const { dataReducer } = this.props.state;
 
     let categoryColor = null;
@@ -187,8 +172,6 @@ class App extends Component {
     }
 
     const AQI_MAX = 100;
-
-console.log('platform is : ',Platform.OS)
 
     return (
 

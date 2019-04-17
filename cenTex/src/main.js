@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 
 import { ThemeProvider } from 'react-native-elements';
 
-import { getAllData } from './actions/data_actions';
 import Navigations from './navigation/index';
 
 
@@ -23,7 +22,7 @@ class Main extends Component {
   }
 
   render() {
-    // console.warn("props is :: ", this.props)
+
     return (
       <ThemeProvider>
           <Navigations />
