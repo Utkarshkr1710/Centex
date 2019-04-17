@@ -24,10 +24,10 @@ import Speedometer from "react-native-speedometer-chart";
 import Weather from "./weather";
  import { API_KEY } from "./WeatherAPIKEY";
 import Tabs from "./tabs";
-// import { IconButton, Colors, withTheme } from "react-native-paper";
 import Modal from "react-native-modal";
-import { colors } from '../Resources/colorCode';
-import { Button } from 'react-native-elements';
+
+import AqiColorCode from './aqiColorCode';
+
 
 
 let sampleData = [
@@ -193,8 +193,9 @@ class App extends Component {
     return (
 
       dataReducer.data ?
-      <SafeAreaView>
+     
       <ScrollView>
+
         <View style={styles.container}>
           <View style={styles.headerTextView}>
           <Text style={styles.headerText1}>CenTex AIR</Text>
@@ -626,9 +627,10 @@ class App extends Component {
               childrenWrapperStyle={{
                 borderRadius: 10,
                 backgroundColor: "#eee",
-                height: 600
+                height: 650
               }}
             >
+            
               <Text
                 style={{ fontWeight: "bold", fontSize: 20, color: "royalblue" }}
               >
@@ -644,162 +646,30 @@ class App extends Component {
                   fontSize: 16,
                   paddingTop: 20,
                   textAlign: "center",
-                  color: "black"
+                  color: "black",
+                  textAlign: 'justify'
                 }}
               >
-                The Environmental Protection{"\n"}Agency air quality index is a
-                color coded{"\n"}guide used to help individuals{"\n"}understand
-                how healthy the air quality may be on particular day. The table.
-                {"\n"} below shows each air quality health{"\n"}level and the
-                matching color indicator.{"\n\n"}
+                The Environmental Protection Agency air quality index is a
+                color coded guide used to help individuals understand
+                how healthy the air quality may be on particular day. The table. Below shows each air quality health level and the
+                matching color indicator.
               </Text>
-              <View
-                style={{
-                  flex: 1,
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-              >
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-around"
-                  }}
-                >
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    0-50
-                  </Text>
-                  <View
-                    style={{
-                      width: 50,
-                      height: 50,
-                      backgroundColor: "#28b463",
-                      borderRadius: 10
-                    }}
-                  />
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    GOOD
-                  </Text>
+            
+                <View style={{flex: 1, width: 300}}>
+
+
+                  <AqiColorCode />
+              
+
                 </View>
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-around"
-                  }}
-                >
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    51-100
-                  </Text>
-                  <View
-                    style={{
-                      width: 50,
-                      height: 50,
-                      backgroundColor: "gold",
-                      borderRadius: 10
-                    }}
-                  />
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    MODERATE
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-around"
-                  }}
-                >
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    101-150
-                  </Text>
-                  <View
-                    style={{
-                      width: 50,
-                      height: 50,
-                      backgroundColor: "orange",
-                      borderRadius: 10
-                    }}
-                  />
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    UNHEALTHY FOR{"\n"}SENSITIVE GROUPS
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-around"
-                  }}
-                >
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    151-200
-                  </Text>
-                  <View
-                    style={{
-                      width: 50,
-                      height: 50,
-                      backgroundColor: "red",
-                      borderRadius: 10
-                    }}
-                  />
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    UNHEALTHY
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-around"
-                  }}
-                >
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    201-300
-                  </Text>
-                  <View
-                    style={{
-                      width: 50,
-                      height: 50,
-                      backgroundColor: "#800080",
-                      borderRadius: 10
-                    }}
-                  />
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    VERY UNHEALTHY
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    alignItems: "center",
-                    justifyContent: "space-around"
-                  }}
-                >
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    300-500
-                  </Text>
-                  <View
-                    style={{
-                      width: 50,
-                      height: 50,
-                      backgroundColor: "#800000",
-                      borderRadius: 10
-                    }}
-                  />
-                  <Text style={{ color: "black", fontWeight: "bold" }}>
-                    HAZARDOUS
-                  </Text>
-                </View>
-              </View>
+
+
+
+
+
+
+
             </Overlay>
             <Overlay
               visible={this.state.modVisible}
@@ -1526,8 +1396,7 @@ class App extends Component {
           </View>
         </View>
       </ScrollView>
-      </SafeAreaView>
-
+     
 
 :
 
