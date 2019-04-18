@@ -171,7 +171,8 @@ class App extends Component {
 
     }
 
-    const AQI_MAX = 100;
+    const AQI_MAX = 100
+   dataReducer.data ? console.log(dataReducer.data.length) : console.warn('not com')
 
     return (
 
@@ -251,14 +252,17 @@ class App extends Component {
                 labelStyle={{ color: "blue" }}
               />
 
-              <Text style={{ color: "black", fontSize: 16 }}>
+              <Text style={{ color: "black", fontSize: 16, width: 150 }}>
                 The air quality index{"\n"}is currently:{"\n"}
                 <Text
                   style={{
                     backgroundColor: categoryColor ? categoryColor : '#fff',
                     fontWeight: "bold",
-                    fontSize: 18
+                    fontSize: 18,
+                    
                   }}
+                  numberOfLines={1}
+                  ellipsizeMode = 'head'
                 >
                   {dataReducer.data ? dataReducer.data[0].Category.Name : 'loading'}
                 </Text>
@@ -307,7 +311,7 @@ class App extends Component {
                   </Text>
                   <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
                     <ProgressBar 
-                    progress= {dataReducer.data ? ((dataReducer.data[0].AQI)/AQI_MAX) : 0}
+                    progress= {(dataReducer.data && (dataReducer.data.length > 0)) ? ((dataReducer.data[0].AQI)/AQI_MAX) : 0}
                     width={60}
                     borderColor='#000'
                     color='#000'
@@ -325,7 +329,7 @@ class App extends Component {
                   </Text>
                   <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
                     <ProgressBar 
-                    progress= {dataReducer.data ? ((dataReducer.data[1].AQI)/AQI_MAX) : 0} 
+                    progress= {(dataReducer.data && (dataReducer.data.length > 1)) ? ((dataReducer.data[1].AQI)/AQI_MAX) : 0} 
                     width={60}
                     borderColor='#000'
                     color='#000'
@@ -343,7 +347,7 @@ class App extends Component {
                   </Text>
                   <View style={{height: 10, marginTop: 6.5, paddingLeft: 3}}>
                     <ProgressBar 
-                    progress= {dataReducer.data ? ((dataReducer.data[2].AQI)/AQI_MAX) : 0} 
+                    progress= {(dataReducer.data && (dataReducer.data.length > 2)) ? ((dataReducer.data[2].AQI)/AQI_MAX) : 0} 
                     width={60}
                     borderColor='#000'
                     color='#000'

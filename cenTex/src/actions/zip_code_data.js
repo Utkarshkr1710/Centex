@@ -16,7 +16,7 @@ export function zipCodeData(text){
 
     const request = axios.get(`${API_URL}`)
                     .then(response => {
-                        if(response.data.length > 2){
+                        if(response.data.length > 0){
                             return response.data
                         }
                         else{
@@ -41,7 +41,7 @@ export function zipCodeDataForecast(text){
     const request = axios.get(`${API_URL2}`)
     
                         .then(response => {
-                            if(response.data.length > 2){
+                            if(response.data.length > 0){
                                return response.data
                             }
                             else{
