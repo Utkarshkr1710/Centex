@@ -9,17 +9,17 @@ export default class AqiColorCode extends Component {
     //   tableHead: ['AQI Value', 'Color Code'],
       tableData: [
         ['AQI Value', 'Color Code','Label'],
-        ['0-50', <View style={{ width: 50,height: 50,backgroundColor: '#28b463',borderRadius: 30, alignSelf: 'center' }} />, 'GOOD'],
+        ['0-50', <View style={{ width: 50,height: 50,backgroundColor: '#28b463',borderRadius: 25, alignSelf: 'center' }} />, 'GOOD'],
 
-        ['51-100', <View style={{ width: 50,height: 50,backgroundColor: 'gold',borderRadius: 30, alignSelf: 'center' }} />, 'MODERATE'],
+        ['51-100', <View style={{ width: 50,height: 50,backgroundColor: 'gold',borderRadius: 25, alignSelf: 'center' }} />, 'MODERATE'],
 
-        ['101-150', <View style={{ width: 50,height: 50,backgroundColor: 'orange',borderRadius: 30, alignSelf: 'center' }} />, 'UNHEALTHY FOR\nSENSITIVE GROUPS'],
+        ['101-150', <View style={{ width: 50,height: 50,backgroundColor: 'orange',borderRadius: 25, alignSelf: 'center' }} />, 'UNHEALTHY FOR\nSENSITIVE GROUPS'],
 
-        ['151-200', <View style={{ width: 50,height: 50,backgroundColor: 'red',borderRadius: 30, alignSelf: 'center' }} />, 'UNHEALTHY'],
+        ['151-200', <View style={{ width: 50,height: 50,backgroundColor: 'red',borderRadius: 25, alignSelf: 'center' }} />, 'UNHEALTHY'],
 
-        ['201-300', <View style={{ width: 50,height: 50,backgroundColor: '#800080',borderRadius: 30, alignSelf: 'center' }} />, 'VERY UNHEALTHY'],
+        ['201-300', <View style={{ width: 50,height: 50,backgroundColor: '#800080',borderRadius: 25, alignSelf: 'center' }} />, 'VERY UNHEALTHY'],
 
-        ['301-500', <View style={{ width: 50,height: 50,backgroundColor: '#800000',borderRadius: 30, alignSelf: 'center' }} />, 'HAZARDOUS']
+        ['301-500', <View style={{ width: 50,height: 50,backgroundColor: '#800000',borderRadius: 25, alignSelf: 'center' }} />, 'HAZARDOUS']
         
       ]
     }
