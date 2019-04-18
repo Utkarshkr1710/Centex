@@ -13,9 +13,14 @@ import {
   TextInput,
   SafeAreaView
 } from "react-native";
+import SplashSreen from "./SplashSreen";
 import { Button } from "react-native-elements";
 
 class Location extends Component {
+
+  _isMounted = false;
+
+
   static navigationOptions = {
     header: null
   };
@@ -26,6 +31,8 @@ class Location extends Component {
     longitude: 0
     };
   }
+
+
 
 
   componentWillMount(){
@@ -39,9 +46,11 @@ class Location extends Component {
         }
       )
     }
-    
   }
 
+  componentWillUnmount(){
+    console.log("unmounted component")
+  }
 
   performTimeConsumingTask = async () => {
     return new Promise(resolve =>
@@ -61,9 +70,17 @@ class Location extends Component {
     const { showLocationButton, pinCode } = this.state;
     if (!showLocationButton && pinCode == null) {
       this.setState({ showLocationButton: true });
-    } else if (showLocationButton && pinCode == null) {
+    } 
+    
+    else if (showLocationButton && pinCode == null) {
       alert("Please enter zip code");
-    } else {
+    } 
+    
+    else if((pinCode.toString().length) < 3 && (pinCode.toString().length) > 9) {
+      alert("Please Enter a Valid Zip Code");
+    }
+    
+    else {
       this.props.navigation.navigate("Home");
       this.props.dispatch(zipCodeData(pinCode))
       this.props.dispatch(zipCodeDataForecast(pinCode))
@@ -71,8 +88,7 @@ class Location extends Component {
     }
   };
   async componentDidMount() {
-    // Preload data from an external API
-    // Preload data using AsyncStorage
+    
     const data = await this.performTimeConsumingTask();
 
     if (data !== null) {

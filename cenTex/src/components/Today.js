@@ -14,6 +14,7 @@ import {
 } from "react-native";
 
 import ProgressBar from 'react-native-progress/Bar';
+import CircularProgress from '../hoc/circularProgress';
 
 import BarChartView from './BarChart';
 
@@ -22,12 +23,12 @@ import Overlay from "react-native-modal-overlay";
 import PureChart from "react-native-pure-chart";
 import Speedometer from "react-native-speedometer-chart";
 import Weather from "./weather";
- import { API_KEY } from "./WeatherAPIKEY";
 import Tabs from "./tabs";
 import Modal from "react-native-modal";
 
 import AqiColorCode from './aqiColorCode';
 import PollenColorCode from "./pollenColorCode";
+import DataLoading from "../hoc/dataLoading";
 
 
 
@@ -92,6 +93,8 @@ class App extends Component {
       error: null,
       visible: false,
       weather: {},
+
+      isDataFound: true,
 
       airQuaIco: true
     };
@@ -182,6 +185,7 @@ class App extends Component {
       <ScrollView>
 
         <View style={styles.container}>
+        
           <View style={styles.headerTextView}>
           <Text style={styles.headerText1}>CenTex AIR</Text>
           <Icons
@@ -787,12 +791,7 @@ class App extends Component {
 
 :
 
-<View>
-  <Text>
-    No Data Available!{'\n'}
-  </Text>
-</View>
-
+  <DataLoading />
 
     );
   }

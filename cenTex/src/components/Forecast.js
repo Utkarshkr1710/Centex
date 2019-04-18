@@ -19,6 +19,7 @@ import Speedometer from "react-native-speedometer-chart";
 import PureChart from "react-native-pure-chart";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import BarChartForeCast from "./BarChartForecast";
+import DataLoading from "../hoc/dataLoading";
 // import PropTypes from "prop-types";
 // import { weatherConditions } from "./WeatherConditions";
 
@@ -179,12 +180,8 @@ class Forecast extends PureComponent {
       // </SafeAreaView>
 
         :
-        <View>
-          <Text>
-            No Data Available!
-          </Text>
-        </View>
-        
+
+      <DataLoading />
 
     );
   }
