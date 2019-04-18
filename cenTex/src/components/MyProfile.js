@@ -117,7 +117,7 @@ export default class Profile extends Component{
         <View style={{marginTop:10}}>
           <Text style={styles.tText}>MY PROFILE</Text>
         </View>
-        <View style={styles.togglecontainer}>
+        {/* <View style={styles.togglecontainer}>
             
         <ToggleSwitch
           label="LOCATION SERVICES"
@@ -142,7 +142,7 @@ export default class Profile extends Component{
           isOn={this.state.isOnBadgeToggleSwitch}
           onToggle={() => this.onToggleBadge() }
         />
-        </View>
+        </View> */}
         <View style={{marginTop:20,justifyContent:'center',alignItems:'center'}}>
               <Text style={styles.sText}>EARN POINTS JUST FOR CHECKING CENTEX AIR,{"\n"}    TAKING THE DAILY CHALLENGE, AND MORE!</Text>
         </View>

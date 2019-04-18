@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     paddingLeft:20,
     fontSize:16,
     paddingRight:20,
+    textAlign: 'justify'
     },
     boldText:{
     marginTop:10,
@@ -101,16 +102,19 @@ const styles = StyleSheet.create({
       fontSize:16,
       paddingLeft:20,
       paddingRight:20,
+      textAlign: 'justify'
     },
     atHome:{
       marginTop:10,
       color:'black',
       paddingLeft:20,
       fontSize:18,
-      fontWeight:'bold'
+      fontWeight:'bold',
+      textAlign: 'justify'
     },
     homeText:{
      color:'black',
+     textAlign: 'justify',
       fontSize:16,
       margin:20,
       paddingRight:20,
@@ -119,12 +123,15 @@ const styles = StyleSheet.create({
       color:'black',
       margin:20,
       fontWeight:'bold',
-      fontSize:18
+      fontSize:18,
+      
+    textAlign: 'justify'
     },
     workText:{
       color:'black',
       fontSize:16,
       margin:20,
       paddingRight:20,
+      textAlign: 'justify'
     }
 });

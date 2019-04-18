@@ -90,10 +90,10 @@ const sampleAccordianData = [
 
                 :
                 <Icon
-                style={{paddingRight:10 }}
-                name="up"
-                size={30}
-                color="white"         
+                  style={{paddingRight:10 }}
+                  name="up"
+                  size={30}
+                  color="white"         
               />
 
         }
@@ -208,7 +208,8 @@ const sampleAccordianData = [
     txt:{
       color:'black',
       fontSize:16,
-      justifyContent:'center'
+      justifyContent:'center',
+      textAlign: 'justify'
     },
      title: {
       textAlign: 'center',

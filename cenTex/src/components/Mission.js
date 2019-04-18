@@ -36,14 +36,14 @@ export default class Mission extends Component{
           <Text style={styles.tText}>MISSION</Text>
         </View>
         <View style={{marginTop:10}}>
-            <Text style={{color:'black',paddingLeft:20,paddingRight:20,fontSize:16}}>The mission of the CLEAN AIR Force of Central Texas is to (1) be a liaison among all stakeholders,(2) coordinate the air quality planning of the private sector, (3) provide a forum for public discussion, (4) educate the public on air quality issues, and (5) manage air quality improvement programs in Central Texas focused on motivating the citizens, businesses and governments of this region to take actions to reduce air pollution to protect public health and the health of our economy.{'\n\n'}In service of our mission, we provide education and sponsor programs that improve and protect the air quality in our Central Texas community. 
+            <Text style={{color:'black',paddingLeft:20,paddingRight:20,fontSize:16, textAlign: 'justify'}}>The mission of the CLEAN AIR Force of Central Texas is to (1) be a liaison among all stakeholders,(2) coordinate the air quality planning of the private sector, (3) provide a forum for public discussion, (4) educate the public on air quality issues, and (5) manage air quality improvement programs in Central Texas focused on motivating the citizens, businesses and governments of this region to take actions to reduce air pollution to protect public health and the health of our economy.{'\n\n'}In service of our mission, we provide education and sponsor programs that improve and protect the air quality in our Central Texas community. 
         </Text>
         </View>
         <View style={{marginTop:20}}>
             <Text style={{color:'black',fontWeight:'bold',fontSize:18,paddingLeft:20}}>WE NEED YOUR SUPPORT Y'ALL!</Text>
         </View>
         <View style={{}}>
-            <Text style={{color:'black',paddingLeft:20,paddingRight:20,fontSize:16}}>Help us continue to advocate for the positive health and economic impacts of improving and protecting the air quality in our Central Texas community. CLEAN AIR Force of Central Texas is a 501(c)(3) nonprofit and all donations are taxdeductible.</Text>  
+            <Text style={{color:'black',paddingLeft:20,paddingRight:20,fontSize:16, textAlign: 'justify'}}>Help us continue to advocate for the positive health and economic impacts of improving and protecting the air quality in our Central Texas community. CLEAN AIR Force of Central Texas is a 501(c)(3) nonprofit and all donations are taxdeductible.</Text>  
         </View>
         <View style={{alignItems:'center',justifyContent:'center',marginTop:80}}>
              <Button
