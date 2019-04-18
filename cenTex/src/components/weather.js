@@ -4,18 +4,22 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import PropTypes from 'prop-types';
 import {weatherConditions} from './WeatherConditions';
 
-//const weatherConditions
 const Weather =({weather,temperature,humidity,Max_temp,Min_temp,visibility,windSpeed,pressure,iconCode}) =>{
 
   const imageSrc = `http://openweathermap.org/img/w/${iconCode}.png`;
-  //console.log(weather);
+  
 
   return (
     <View style={[styles.weatherContainer,
             {backgroundColor:Weather.color}
               ]}>
       <View style={styles.headerContainer}>
-         <Text style={styles.tempText}>{temperature}˚</Text>
+        
+         <Text style={styles.tempText}>
+         
+          {temperature}{(temperature > 200) ? 'K' : '˚'}
+          
+         </Text>
          
     <Image
       source={{uri: imageSrc}}
@@ -28,18 +32,27 @@ const Weather =({weather,temperature,humidity,Max_temp,Min_temp,visibility,windS
     />
 
 
-      <Text style={{textAlign: 'center', justifyContent: 'center', fontSize:17,color:'black', fontWeight:'bold', flex: 1}}>{weather}{'\n'}      {Max_temp}˚ | {Min_temp}˚</Text> 
+      <Text style={{textAlign: 'center', justifyContent: 'center', fontSize:17,color:'black', fontWeight:'bold', flex: 1}}>
+      
+        {weather}{'\n'}      {Max_temp}{(Max_temp > 200) ? 'K' : '˚'} | {Min_temp}{(Min_temp > 200) ? 'K' : '˚'}
+      
+      </Text> 
+
     </View>
+
       <View style={styles.RectangleShapeView}> 
-      <View style={{marginTop:10,flexDirection:'row',justifyContent:'space-around'}}>
-      <MaterialCommunityIcons size={40} name="weather-rainy" color={'black'}  style={{alignItems:'center',justifyContent:'center'}} />
-           <Text style={styles.humidity}>HUMIDITY{'\n'}    {humidity}%                             
-           </Text>
-      <MaterialCommunityIcons size={40} name="muffin" color={'black'} style={{alignItems:'center',justifyContent:'center'}}/>
-            <Text style={styles.air}>AIR PRESSURE{'\n'}        {pressure}mBar                               
-           </Text>
-      </View>
-     
+
+          <View style={{marginTop:10,flexDirection:'row',justifyContent:'space-around'}}>
+
+          <MaterialCommunityIcons size={40} name="weather-rainy" color={'black'}  style={{alignItems:'center',justifyContent:'center'}} />
+          
+              <Text style={styles.humidity}>HUMIDITY{'\n'}    {humidity}%                             
+              </Text>
+          <MaterialCommunityIcons size={40} name="muffin" color={'black'} style={{alignItems:'center',justifyContent:'center'}}/>
+                <Text style={styles.air}>AIR PRESSURE{'\n'}        {pressure}mBar                               
+              </Text>
+          </View>
+        
        <View style={{marginTop:10,flexDirection:'row',justifyContent:'space-around'}}>
        <MaterialCommunityIcons size={40} name="thermometer-lines" color={'black'} style={{alignItems:'center',justifyContent:'center'}}/>
             <Text style={styles.feels}>FEELS LIKE{'\n'}                                

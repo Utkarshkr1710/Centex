@@ -171,8 +171,7 @@ class App extends Component {
 
     }
 
-    const AQI_MAX = 100
-   dataReducer.data ? console.log(dataReducer.data.length) : console.warn('not com')
+    const AQI_MAX = 100;
 
     return (
 

@@ -26,6 +26,8 @@ class BarChartForecast extends React.PureComponent {
 
     render() {
 
+        const uuidv4 = require('uuid/v4');
+
         const data = [
             {
                 value: 25,
@@ -67,7 +69,7 @@ class BarChartForecast extends React.PureComponent {
         const Labels = ({  x, y, bandwidth, data }) => (
             data.map((item, index) => (
                 <Text
-                    key={ item.label }
+                    key={ uuidv4() }
                     x={ item.value > CUT_OFF ? x(0) + 10 : x(item.value) + 10 }
                     y={ y(index) + (bandwidth / 2) }
                     fontSize={ 11 }

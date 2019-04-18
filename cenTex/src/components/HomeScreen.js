@@ -17,6 +17,10 @@ import SplashSreen from "./SplashSreen";
 import { Button } from "react-native-elements";
 
 class HomeScreen extends Component {
+
+  _isMounted = false;
+
+
   static navigationOptions = {
     header: null
   };
@@ -27,6 +31,8 @@ class HomeScreen extends Component {
     longitude: 0
     };
   }
+
+
 
 
   componentWillMount(){
@@ -42,6 +48,9 @@ class HomeScreen extends Component {
     }
   }
 
+  componentWillUnmount(){
+    
+  }
 
   performTimeConsumingTask = async () => {
     return new Promise(resolve =>

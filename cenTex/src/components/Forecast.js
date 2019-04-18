@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import { connect } from 'react-redux';
 import {zipCodeDataForecast} from '../actions/zip_code_data';
 
@@ -60,7 +60,7 @@ var data = [
   }
 ];
 
-class Forecast extends Component {
+class Forecast extends PureComponent {
   constructor(props) {
     super(props);
 

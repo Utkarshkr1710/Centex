@@ -10,9 +10,9 @@ import {
   View,
   Image,
   StatusBar,
-  TextInput
+  TextInput,
+  SafeAreaView
 } from "react-native";
-import SplashSreen from "./SplashSreen";
 import { Button } from "react-native-elements";
 
 class Location extends Component {
@@ -29,16 +29,18 @@ class Location extends Component {
 
 
   componentWillMount(){
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        this.setState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        })
-      }
-    )
+    if (Platform.OS === "android") {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.setState({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          })
+        }
+      )
+    }
+    
   }
-
 
 
   performTimeConsumingTask = async () => {
@@ -81,9 +83,9 @@ class Location extends Component {
   render() {
     const { showLocationButton } = this.state;
 
-console.log(this.state)
     const { navigate } = this.props.navigation;
     return (
+      
       <View style={styles.container}>
         <StatusBar barStyle="light-content" backgroundColor="royalblue" />
         <View style={styles.card}>
